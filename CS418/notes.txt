@@ -1,0 +1,28 @@
+username:rpatel
+password:pa00579575
+        :mysql -u rpatel -p
+password:0SVO53lw
+database:use rpatel;
+
+mysql -u [username] -p
+
+show databases
+
+use [database]
+use rpatel
+
+show tables from [database]
+
+describe [table]
+
+select * from [column];
+
+DELETE from users WHERE id = 4;
+
+set password=[new password]
+
+drop table [table] //delete table
+
+http://mln-web.cs.odu.edu/~rpatel/
+
+mln-web.cs.odu.edu

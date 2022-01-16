@@ -1,0 +1,199 @@
+<?php session_start();  include 'protect.php'; include 'lib.php'; include 'config.php'; ?>
+
+<?php 
+
+include 'config.php';
+if(isset($_POST['zbody']) && isset($_POST['ztitle']) )
+{
+add_thread($_POST['ztitle'],$_POST['zbody'],$_SESSION['user'],$_POST['zmpid']);
+unset($_POST['zbody']); 
+unset($_POST['ztitle']); 
+unset($_POST['zmpid']); 
+}
+
+// Validate: id(len <= 10) && (is in 'thread')
+
+
+      if($_GET['id']!="")
+      {
+            if(strlen($_GET['id'])<11)
+             {
+                                $f=$_GET['id'];
+                                if(check_forum($f))
+                                {
+                                    define("fname",$f);
+                                    $list=list_thread(fname);
+                                    $s=sizeof($list);
+                                    define("size",$s);
+                                    define("url","showforum.php?id=".fname);
+                                    $set=true;
+                                }
+                                else
+                                {
+                                    //error
+                                    define("url","showforum.php");
+                                    define("fname","");
+                                    $set=false;
+                                    define("size","0");
+                                    define("myErr1","An error occured while processing your request
+                                             <br><b>An invalid forum name was entered.</b>
+                                             <br>Please navigate back and try again");                    
+                                }
+             }
+            
+            else
+            {
+                //error
+                define("url","showforum.php");
+                define("fname","");
+                $set=false;
+                define("size","0");
+                define("myErr2","An error occured while processing your request
+                         <br>Please navigate back and try again, or hit the 
+                         REFRESH button at the top of your browser.");
+            }
+            }
+       else{
+            define("url","showforum.php");
+            define("fname","");
+            $set=false;
+            define("size","0");
+            }       
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+  
+<HTML>
+  <HEAD>
+    <LINK href="style.css" rel="stylesheet" type="text/css">
+  </HEAD>
+  <BODY>
+    
+
+<div class="Outer">
+	
+	<div class="Logo">
+	</div>
+
+    <div class="Login">
+    
+        <?php start('a'); ?>
+        Welcome <?php echo $_SESSION['user']; ?> !
+        <?php stop('a'); ?>
+        
+        <?php start('a'); ?>                 
+            <form action="<?php echo url; ?>" method="post">
+            <input type="hidden" name="out" value="1">
+            <input type="submit" value="logout">
+            </form>
+        <?php stop('a'); ?>
+        
+        <?php start('o'); ?>
+        <form action="<?php echo url; ?>" method="post">
+            <table width=200 border=1><tr><td width=50>
+            name:
+            </td><td>
+            <input type="text" name="sn">
+            </td></tr><tr><td>
+            password:
+            </td><td>
+            <input type="text" name="pw">
+            </td></tr><tr><td colspan=2>
+            <input type="submit" value="submit">
+            </td></tr></table>
+            </form>
+        <?php stop('o'); ?>    
+    </div>
+    
+<div class="menu">
+
+
+<a href="index.php">Home</a>
+
+
+</div>
+    
+    <div class="body">
+    <?php
+    
+    mysql_connect(host,sn,pw);
+    mysql_select_db(db);       
+    $a=$_GET['id'];
+    $query = "SELECT * FROM forum WHERE ID=\"$a\""; 
+    $result=mysql_query($query);
+    $f0 = mysql_result($result,0,"title");
+    $f1 = mysql_result($result,0,"body");
+          mysql_close();  
+    echo "<center>You are in the <b> ".$f0."</b> forum.<br>";
+    echo "<i>".$f1."</i></center><br><br>";
+    ?>
+<table width=500>
+<tr>
+<td width=50>
+Author
+</td>
+<td width=20>
+Size
+</td>
+<td width=30>
+Date
+</td>
+<td width= 400>
+Title
+</td>
+</tr>
+
+<?php  
+                                  
+      if($set)
+          {
+           for($i=0;$i<=size;$i++) 
+            {
+
+echo "<tr>";
+echo "<td width=50>";
+echo $list[$i][0];
+echo "</td>";
+echo "<td width=20>";
+echo $list[$i][1];
+echo "</td>";
+echo "<td width=100>";
+echo $list[$i][2];
+echo "</td>";
+echo "<td width= 230>";
+echo "<a href='showthread.php?pid=".fname."&id=".$list[$i][5]."'>".$list[$i][3]."</a>";
+echo "</td>";
+echo "</tr>";   
+             }
+           }
+         else{ if(defined('myErr1')){echo myErr1;}}
+
+?>
+</table>
+          
+</div>
+
+<div class="body">
+<?php start('a'); ?>
+      <b>Add a thread:</b>
+     <form name="add" action="<?php echo url; ?>" method="POST">
+           Title: <input type="text" name="ztitle">
+           <br>
+           Content: <textarea name="zbody" rows=5 cols=70 ></textarea>
+           <br>           
+           
+           <input type="hidden" name="zmpid" value="<?php echo $_GET['id']; ?>">
+           <input type="hidden" name="redir" value="<?php echo url; ?>">
+           <input type="hidden" name="zptype" value="t">
+           <input type="submit" value="Post">
+     </form>
+<?php stop('a'); ?>
+</div>
+
+</div>
+    
+    
+    
+  </BODY>
+</HTML>

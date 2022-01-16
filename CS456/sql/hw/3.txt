@@ -1,0 +1,81 @@
+1)
+SELECT sysdate "Date"
+FROM dual;
+
+2&3)
+SELECT employee_id, last_name, salary, ROUND(salary*1.155,0) "New Salary"
+FROM employees;
+
+4)
+SELECT employee_id, last_name, salary,
+       ROUND(salary*1.155,0) "New Salary",
+       ROUND(salary*1.155,0)-salary "Increase"
+FROM employees;
+
+5a)
+SELECT INITCAP(last_name) "Name",
+       LENGTH(last_name) "Length"
+FROM employees
+WHERE last_name LIKE 'J%'
+   OR last_name LIKE 'M%'
+   OR last_name LIKE 'A%'
+ORDER BY last_name;
+
+5b)
+SELECT INITCAP(last_name) "Name", 
+       LENGTH (last_name) "Length"
+FROM employees
+WHERE last_name LIKE '&initial%'
+ORDER BY last_name;
+
+6)
+SELECT last_name, ROUND(MONTHS_BETWEEN(sysdate, hire_date)) months_worked
+FROM employees
+ORDER BY months_worked;
+
+7)
+SELECT last_name||'earns'||TO_CHAR(salary, '$99,999.00')||' monthly but wants '||TO_CHAR(salary*3, '$99,999.00')||'.' "Dream Salaries"
+FROM employees;
+
+8)
+SELECT last_name, LPAD(salary, 15, '$') salary
+FROM employees;
+
+9)
+SELECT last_name, hire_date, 
+       TO_CHAR(NEXT_DAY(ADD_MONTHS(hire_date,6),'MONDAY'),
+       'fmDay, "the" Ddspth "of" Month, YYYY') REVIEW
+FROM employees;
+
+10)
+SELECT last_name, hire_date, TO_CHAR(hire_date, 'DAY') day
+FROM employees
+ORDER BY TO_CHAR(hire_date-1,'d');
+
+11)
+SELECT last_name, NVL(TO_CHAR(commission_pct), 'No Commission') comm
+FROM employees;
+
+12)
+SELECT RPAD(last_name, 8)||' '||RPAD(' ',1+salary/1000,'*') employees_and_their_salaries
+FROM employees
+ORDER BY salary DESC;
+
+13)
+SELECT job_id, DECODE(job_id, 'ST_CLERK', 'E',
+                              'SA_REP',   'D',
+                              'IT_PROG',  'C',
+                              'ST_MAN',   'B',
+                              'AS_PRES',  'A',
+                              '0') grade
+FROM employees;
+
+14)
+SELECT job_id, CASE job_id
+                        WHEN 'ST_CLERK' THEN 'E'
+                        WHEN 'SA_REP'    THEN 'D'
+                        WHEN 'IT_PROG'   THEN 'C'
+                        WHEN 'ST_MAN'    THEN 'B'
+                        WHEN 'AS_PRES'  THEN 'A'
+                        ELSE '0' END grade
+FROM employees;

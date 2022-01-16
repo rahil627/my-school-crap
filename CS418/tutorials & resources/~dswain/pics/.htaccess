@@ -1,0 +1,6 @@
+AuthType Basic
+AuthUserFile /dev/null
+AuthName "Restricted"
+<LIMIT GET POST>
+require valid-user
+</LIMIT>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="flechette.h" open="1" top="1">
+		<Cursor position="648" topLine="3"/>
+	</File>
+	<File name="flechette_test.cpp" open="1" top="0">
+		<Cursor position="505" topLine="0"/>
+	</File>
+	<File name="sensor.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Headers"/>
+</CodeBlocks_layout_file>

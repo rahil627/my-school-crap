@@ -1,0 +1,734 @@
+host: mln-web.cs.odu.edu
+username:rpatel
+password:pa00579575
+sgarland
+87palmtrees87
+
+URL: http://mln-web.cs.odu.edu/~sgarland/
+URL: http://mln-web.cs.odu.edu:7214/a5-test/index.html.en
+
+telnet www.cs.odu.edu 80
+telnet mln-web.cs.odu.edu 80
+
+python webserver.py restart
+telnet mln-web.cs.odu.edu 7214
+
+tail -f error.log
+
+requests
+[GET/HEAD/OPTIONS/TRACE] /~mln/index.html HTTP/1.1
+HOST: www.cs.odu.edu
+Connection:  Close //not needed
+
+[GET/HEAD/OPTIONS/TRACE] /~sgarland/a2-test/index.html HTTP/1.1
+HOST: www.cs.odu.edu
+Connection:  Close //not needed
+
+download the test directory, tar xvf a5.tar.gz a5-test in UNIX, chmod 755 it
+
+wget http://www.cs.odu.edu/~mln/teaching/cs595-s09/programs/a5.pl
+chmod 755 a4.pl
+
+//must include the trailing '/'
+./a1.pl results http://mln-web.cs.odu.edu:7214/a1-test/
+./a2.pl results2 http://mln-web.cs.odu.edu:7214/a2-test/
+./a2-ll.pl results2 http://mln-web.cs.odu.edu:7214/a2-test/
+./a3.pl results3 http://mln-web.cs.odu.edu:7214/a3-test/
+./a4.pl results4 http://mln-web.cs.odu.edu:7214/a4-test/
+./a5.pl results5 http://mln-web.cs.odu.edu:7214/a5-test/
+less group14/output.[test #]
+
+rm a5-test/limited4/foo/barbar.txt
+
+http://www.ietf.org/rfc/rfc2616.txt
+http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
+http://www.jmarshall.com/easy/http/
+
+http://en.wikipedia.org/wiki/HTTP
+http://en.wikipedia.org/wiki/List_of_HTTP_headers
+http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+
+http://docs.python.org/index.html
+http://docs.python.org/3.0/library/http.server.html
+http://docs.python.org/library/basehttpserver.html
+http://docs.python.org/library/logging.html
+http://en.wikipedia.org/wiki/URL_encoding #temp
+
+http://www.askapache.com/htaccess/apache-status-code-headers-errordocument.html
+
+http://snipplr.com/view/7318/creating-and-removing-files-and-dirs-with-python-os-module/ #create/remove files
+
+301
+GET /a1-test/2 HTTP/1.1
+HOST: www.cs.odu.edu
+
+302
+GET a2-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+
+302 - regex
+HEAD a2-test/1/1.2/go%20hokies!.html HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+304 - pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2005 18:43:15 GMT
+
+304 - fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+304 - pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Unmodified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+304 - fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Unmodified-Since: Sun, 29 Jan 2005 18:43:15 GMT
+
+412 - if-match pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Match: "1656f6ce98fe5928ed0fbf440c84bcb1"
+
+412 - if-match fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Match: "mumbojumbo"
+
+412 - if-none match pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-None-Match: "mumbojumbo"
+
+412 - if-none match fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-None-Match: "1656f6ce98fe5928ed0fbf440c84bcb1"
+
+options "*"
+OPTIONS * HTTP/1.1
+Host: www.cs.odu.edu
+
+directory listing
+GET a1-test/2/ HTTP/1.1
+Host: www.cs.odu.edu
+
+pipeline
+GET /a1-test/2 HTTP/1.1
+HOST: www.cs.odu.edu
+
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+OPTIONS a1-test/2/ HTTP/1.1
+Host: www.cs.odu.edu
+
+general testing
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+
+404 pipeline
+GET /adsflkjalskdjfslkf HTTP/1.1
+Host: mln-web.cs.odu.edu
+
+GET /adsflkjalskdjfslkf HTTP/1.1
+Host: mln-web.cs.odu.edu
+
+
+
+testing mln's server via telnet www.cs.odu.edu 80
+GET /~mln/teaching/cs595-s06/a1-test/2 HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+TRACE /~mln/teaching/cs595-s06/a2-test/2/fairlane.html HTTP/1.1
+Host: mln-web.cs.odu.edu
+If-Match: "not-a-real-etag"
+If-None-Match: "also-not-a-real-etag"
+If-Modified-Since: Mon, 27 Feb 2006 18:27:12 GMT
+If-Unmodified-Since: Mon, 27 Feb 2006 18:27:12 GMT
+Connection: close
+
+testing CS server via telnet mln-web.cs.odu.edu 80
+GET / HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+Difference between import and from-import in Python
+import feathers
+duster = feathers.ostrich("South Africa")
+
+from feathers import ostrich
+duster = ostrich("South Africa")
+
+
+
+
+
+
+
+
+A3
+
+HEAD /a2-test/1/1.2/go%20hokies!.html HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+new 302
+GET /a2-test/galaxie.txt HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+GET /a2-test/fairlane.txt HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+ps -aux | grep sgarland //display process list
+kill [process #]
+
+rm /tmp/Wanksta.pid
+
+accept-content-type****************************
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=0.1, image/gif; q=0.5, image/jpeg; q=1.0
+Connection: close
+
+HEAD /a3-test/fairlane.jpeg HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=1.0, image/gif; q=0.5, image/jpeg; q=0.1
+Connection: close
+***********************************
+
+
+406 tests*******
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=0.0, image/gif; q=0.0, image/jpeg; q=0.0
+Connection: close
+
+HEAD /a3-test/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=0.0, image/gif; q=0.0, image/jpeg; q=0.0
+Connection: close
+***********************
+
+NEED TO IMPLEMENT THIS TEST********************************************
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png, image/gif, image/jpeg
+Connection: close
+***************************************************
+Carlton is correct.  It is possible to have:
+
+Accept: image/png, image/gif
+
+and not specify the q-values specifically.  in that case, the default
+value for image/png and image/gif if "1.0" -- and the default value for
+image/jpeg is "0.0" (since it does not appear).
+
+all of my requests will explicitly set the q-values in the appropriate
+headers.
+
+regards,
+
+Michael
+************************************************
+302 with Accept
+GET /a2-test/galaxie.txt HTTP/1.1
+Host: mln-web.cs.odu.edu
+Accept: image/png; q=1.0, image/gif; q=0.5, image/jpeg; q=0.1
+Connection: close
+
+GET /a2-test/galaxie HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+
+
+HEAD /a3-test/index.html.ko.euc-kr HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+GET /a3-test/index.html.ko.euc-kr HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/vt-uva.html.gz HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/index.html.ko.euc-kr HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+accept-charset test*******************
+HEAD /a3-test/index.html HTTP/1.1
+Accept-Language: ja; q=1.0
+Accept-Charset: iso-2022-jp; q=1.0
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/index.html HTTP/1.1
+Accept-Charset: iso-2022-jp; q=1.0
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/index HTTP/1.1
+Accept-Charset: iso-2022-jp; q=1.0
+Host: www.cs.odu.edu
+Connection: close
+**********************
+
+accept-encoding test**************
+HEAD /a3-test/vt-uva HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/vt-uva HTTP/1.1
+Accept-Encoding: compress; q=0.1, gzip; q=0.0
+Host: www.cs.odu.edu
+Connection: close
+*****************************
+
+
+accept-language test*************
+HEAD /a3-test/index.html HTTP/1.1
+Accept-Language: en; q=1.0, de; q=0.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/index.html HTTP/1.1
+Accept-Language: en; q=1.0
+Host: www.cs.odu.edu
+Connection: close
+******************
+
+general testing
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+
+HEAD /a3-test/fairlane.jpeg HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=1.0, image/gif; q=0.5, image/jpeg; q=0.1
+Connection: close
+
+300 tests********
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=1.0, image/gif; q=1.0, image/jpeg; q=1.0
+Connection: close
+*******
+
+test $=fixed
+01+ server test
+02$ missing content-language
+03$ HEAD /a3-test/index.htmll should return 404 not 300
+04+ a2
+05+ a2
+06+
+07- Accept: image/*; q=1.0 should be 300 accept all images not 406
+08- Accept: image/jpeg; q=0.9, image/png; q=0.91, image/tiff; q=0.95 should be 200 not 406
+09- checks etag
+10- Accept: text/*; q=1.0, image/*; q=0.99
+11- Accept-Encoding: compress; q=0.0, gzip; q=0.0, deflate; q=0.5
+12- Accept-Encoding: compress; q=0.0, gzip; q=0.5
+13+
+14- Accept-Language: en; q=1.0, ja; q-0.5 AND Accept-Charset: euc-jp; q=1.0, iso-2022-jp; q=0.0
+15+
+16+
+17$ worked after fixing test02
+18+
+
+test08 - this returns 406 - see line 437 <-----Fixed
+HEAD /a3-test/fairlane HTTP/1.1
+Host: mln-web.cs.odu.edu
+Accept: image/jpeg; q=0.9
+User-Agent: CS 595-S09 A3 automated Checker
+Connection: close
+
+if(re.compile(entry[1].replace('*','(.*)')).match(variant['ContentType'])):
+
+if(self.request.headers.has_key('Accept')):
+    vary += ',accept'
+    q = []
+    for entry in (self.request.headers.getheader('Accept','').split(', ')):                     
+        params = entry.split(';')
+        if(len(params) == 1): params.append('q=1.0')
+        params[1] = params[1].strip()
+        for param in params[0].split(','):
+            param = param.strip()
+            q.append([(params[1])[2:],param])
+    q.sort(reverse=True)
+            
+    for variant in variants:
+        matched = False
+        for entry in q:
+            if(re.compile(entry[1].replace('*','(.*)')).match(variant['ContentType'])):
+                variant['q'] = float(variant['q']) * float(entry[0])
+                matched = True
+                break
+        if (not matched):
+            variant['q'] = 0
+
+a4
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+401 -basic -no auth header
+GET /a4-test/limited1/protected HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+200 -basic
+GET /a4-test/limited1/protected HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Basic bWxuOm1sbg==
+Connection: close
+
+404 -basic -wrong password -not b64 compatible
+GET /a4-test/limited1/protected HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Basic thisisafakepassword
+Connection: close
+
+404 -basic -wrong password
+GET /a4-test/limited1/protected HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Basic fakepass====
+Connection: close
+
+401 -digest -no auth header
+GET /a4-test/limited2/foo/bar.txt HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+404 -digest -missing a variable
+GET /a4-test/limited2/foo/bar.txt HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Digest username="mln", realm="Colonial Place", qop=auth, nonce="AARmQ3eCGoo=642d940339fe011ff1eb3d026d9ed55266b61183", nc=00000001, cnonce="014a54548c61ba03827ef6a4dc2f7b4c", response="099f6f84cd7d2ff4e92d01adea40b2a9"
+Connection: close
+
+200 -digest his example -OLD
+GET /a4-test/limited2/foo/bar.txt HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Digest username="mln", realm="Colonial Place", uri="http://www.cs.odu.edu:80/~mln/teaching/cs595-s09/a4-test/limited2/foo/bar.txt", qop=auth, nonce="AARmQ3eCGoo=642d940339fe011ff1eb3d026d9ed55266b61183", nc=00000001, cnonce="014a54548c61ba03827ef6a4dc2f7b4c", response="099f6f84cd7d2ff4e92d01adea40b2a9"
+Connection: close
+
+response=099f6f84cd7d2ff4e92d01adea40b2a9, rspauth=e3cd2569795632cca41d52a4610ed4c3, rspcnonce=014a54548c61ba03827ef6a4dc2f7b4c, etag=13267f-12-985006c0
+A1=md5.new('mln'+':'+'Colonial Place'+':'+'mln').hexdigest()
+A2=md5.new('GET'+':'+'http://www.cs.odu.edu:80/~mln/teaching/cs595-s09/a4-test/limited2/foo/bar.txt').hexdigest()
+md5.new(A1+':'+'AARmQ3eCGoo=642d940339fe011ff1eb3d026d9ed55266b61183'+':'+'00000001'+':'+'014a54548c61ba03827ef6a4dc2f7b4c'+':'+'auth'+':'+A2).hexdigest()
+
+200 digest -using a static nonce
+GET /a4-test/limited2/foo/bar.txt HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Digest username="mln", realm="Colonial Place", uri="http://www.cs.odu.edu:7214/a4-test/limited2/foo/bar.txt", qop=auth, nonce="easynonce===", nc=00000001, cnonce="014a54548c61ba03827ef6a4dc2f7b4c", response="60727e214916e1a476660893daf5a13c"
+Connection: close
+
+A1=md5.new('mln'+':'+'Colonial Place'+':'+'mln').hexdigest()
+A2=md5.new('GET'+':'+'http://www.cs.odu.edu:7214/a4-test/limited2/foo/bar.txt').hexdigest()
+md5.new(A1+':'+'easynonce==='+':'+'00000001'+':'+'014a54548c61ba03827ef6a4dc2f7b4c'+':'+'auth'+':'+A2).hexdigest()
+#response='60727e214916e1a476660893daf5a13c'
+
+200 digest -a real test example
+GET /a4-test/limited2/foo/bar.txt HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Digest username="mln", realm="Colonial Place", uri="http://www.cs.odu.edu:7214/a4-test/limited2/foo/bar.txt", qop=auth, nonce="U3VuLCAxMiBBcHIgMjAwOSAxOTo1OTo1MyBHTVQgN2Q0NTNlNTg5YTI1ODI5NjQ3Y2NjODUwYzg4YTZiMGY=", nc=00000001, cnonce="014a54548c61ba03827ef6a4dc2f7b4c", response="78d6d146afa90b9c5e002589363c8984"
+Connection: close
+
+A1=md5.new('mln'+':'+'Colonial Place'+':'+'mln').hexdigest()
+A2=md5.new('GET'+':'+'http://www.cs.odu.edu:7214/a4-test/limited2/foo/bar.txt').hexdigest()
+md5.new(A1+':'+'U3VuLCAxMiBBcHIgMjAwOSAxOTo1OTo1MyBHTVQgN2Q0NTNlNTg5YTI1ODI5NjQ3Y2NjODUwYzg4YTZiMGY='+':'+'00000001'+':'+'014a54548c61ba03827ef6a4dc2f7b4c'+':'+'auth'+':'+A2).hexdigest()
+#response='78d6d146afa90b9c5e002589363c8984'
+
+self.send_header('high', 'guise')
+
+http://en.wikipedia.org/wiki/Digest_access_authentication
+http://www.ietf.org/rfc/rfc2617.txt
+
+these are not tested by a4.pl:
+auth-int
+md5-sess
+stale
+opaque
+
+add content headers to 401?
+
+
+200 -digest his example -OLD
+GET /a4-test/limited2/foo/bar.txt HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Digest username="mln", realm="Colonial Place", uri="http://www.cs.odu.edu:80/~mln/teaching/cs595-s09/a4-test/limited2/foo/bar.txt", qop=auth, nonce="AARmQ3eCGoo=642d940339fe011ff1eb3d026d9ed55266b61183", nc=00000001, cnonce="014a54548c61ba03827ef6a4dc2f7b4c", response="099f6f84cd7d2ff4e92d01adea40b2a9"
+Connection: close
+
+a1 - 14/20
+a2 - 9/18 a2-II - 0/4
+a3 - 16/18
+a4 - 17/17
+
+a5
+
+#200
+DELETE /a5-test/limited5/test.txt HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+#405 method not allowed
+DELETE /a5-test/limited6/test.txt HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+#200
+PUT /a5-test/limited1/foobar.txt HTTP/1.1
+Host: www.cs.odu.edu
+Authorization: Basic bWxuOm1sbg==
+Content-type: text/plain
+Content-length: 17
+Connection: close
+
+you can't get me!
+line2
+
+#405 method not allowed
+PUT /a5-test/limited5/test.txt HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+User-Agent: CS 595-s07 Automatic Testing Program
+Content-type: text/plain
+Content-length: 17
+
+you can't get me!
+
+#411 length required
+PUT /a5-test/limited4/test.txt HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+User-Agent: CS 595-s07 Automatic Testing Program
+Content-type: text/plain
+
+#CGI stuff*********************************
+GET /a5-test/status.cgi HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+User-Agent: CS 595-s07 Automatic Testing Program
+Content-type: text/plain
+
+GET /a5-test/location.cgi HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+User-Agent: CS 595-s07 Automatic Testing Program
+
+GET /a5-test/ls.cgi HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+User-Agent: CS 595-s07 Automatic Testing Program
+
+GET /a5-test/env.cgi HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+POST /a5-test/env.cgi HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+Referer: http://www.cs.odu.edu/~mln/bar.html
+User-Agent: CS 595-s06 Automatic Testing Program
+Content-type: application/x-www-form-urlencoded
+Content-Length: 134
+
+GET http://mln-web.cs.odu.edu:7214/a5-test/status.cgi HTTP/1.1
+Host: mln-web.cs.odu.edu
+
+GET http://mln-web.cs.odu.edu:7214/a5-test/ls.cgi HTTP/1.1
+Host: mln-web.cs.odu.edu
+
+GET http://mln-web.cs.odu.edu:7214/a5-test/location.cgi HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+
+GET http://mln-web.cs.odu.edu:7214/a5-test/env.cgi HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+GET http://mln-web.cs.odu.edu:7214/a5-test/ls.cgi HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+GET http://mln-web.cs.odu.edu:7214/a5-test/location.cgi HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+PUT /a5-test/limited1/foobar.txt HTTP/1.1
+Host: mln-web.cs.odu.edu
+Content-Length: 15
+Authorization: Basic bWxuOm1sbg==
+Connection: close
+
+WTFWTFWTFWTFWTF
+
+#***Sends 404 No such CGI script*******
+POST /a5-test/foo.cgi HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+Referer: http://www.cs.odu.edu/~mln/bar.html
+User-Agent: CS 595-s06 Automatic Testing Program
+Content-type: application/x-www-form-urlencoded
+Content-Length: 134
+
+action=restore&manufacturer=ford&model=fairlane+500XL&year=1966&status=modified&engine=427+sideoiler&transmission=4+speed+toploader
+
+""" together?
+action=restore&manufacturer=ford&model=fairlane+500XL
+&year=1966&status=modified&engine=427+sideoiler
+&transmission=4+speed+toploader
+"""
+
+414?
+GET /~mln/foo.cgi?action=restore&manufacturer=ford&model=fairlane+500XL
+&year=1966&status=modified&engine=427+sideoiler&transmission=4+speed+toploader HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+Referer: http://www.cs.odu.edu/~mln/bar.html
+User-Agent: CS 595-s06 Automatic Testing Program
+
+
+------------0xKhTmLbOuNdArY
+Content-Disposition: form-data; name=”action"
+
+restore
+------------0xKhTmLbOuNdArY
+Content-Disposition: form-data; name=”manufacturer"
+
+ford
+------------0xKhTmLbOuNdArY
+Content-Disposition: form-data; name=”model"
+
+fairlane 500xl
+------------0xKhTmLbOuNdArY
+Content-Disposition: form-data; name=”year"
+
+1966
+------------0xKhTmLbOuNdArY
+Content-Disposition: form-data; name=”picture"; filename="fairlane.txt"
+Content-Type: text/plain
+
+
+           ______________
+          //            \\
+---------//--------------\\-------
+|   __                      __    |
+|--/  \--------------------/  \---|
+   \__/                    \__/
+
+------------0xKhTmLbOuNdArY--
+
+things to do:
+    try POST
+    finish PUT - content-length too long status code, test for no content sent
+    update TRACE?
+    remove mimetypes.update
+    recursive testing!
+        a1 - 13/20
+        a2 - 10/18 a2-II - 0/4
+        a3 - 17/18
+        a4 - 17/17
+    move code in do_GET to send_head
+    fix that huge file_exists if statement - to send a 401, etag is needed. to create an etag, last modified date is needed. to get last modified date, a file is needed. hrmmm....
+questions:
+    where are those powerpoint slides that pertained to content-length status codes?
+
+GET /a2-test/fairlane.txt HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+****Partial GETs scrathpad**********
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=0-9
+Connection: close
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=10-19
+Connection: close
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=20-29
+Connection: close
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=0-2000
+Connection: close
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=0-9
+If-Range: Sun, 29 Jan 2006 18:43:15 GMT
+Connection: close
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=2000-2999
+Connection: close
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=aldksjfalsdjfl
+Connection: close
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=0-9
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=10-19
+
+GET /a1-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Range: bytes=20-29
+Connection: close
+
+
+
+
+
+-    def parse_request(self):
+-        # Extended to provide header and body length limits.
+-        mhs = int(cherrypy.config.get('server.max_request_header_size',
+-                                      500 * 1024))
+-        self.rfile = httptools.SizeCheckWrapper(self.rfile, mhs)
+-        try:
+-            presult = BaseHTTPRequestHandler.parse_request(self)
+-        except httptools.MaxSizeExceeded:
+-            self.send_error(413, "Request Entity Too Large")
+-            cherrypy.log(traceback=True)
+-            return False
+-        else:
+-            if presult:
+-                # Request header is parsed
+-                # We prepare the SizeCheckWrapper for the request body
+-                self.rfile.bytes_read = 0
+-                path = self.path
+-                if path == "*":
+-                    path = "global"
+-                mbs = int(cherrypy.config.get('server.max_request_body_size',
+-                                              100 * 1024 * 1024, path=path))
+-                self.rfile.maxlen = mbs
+-        return presult
+

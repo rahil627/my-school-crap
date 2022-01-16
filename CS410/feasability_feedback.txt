@@ -1,0 +1,36 @@
+gentleman with red shirt
+-interface 
+	-with existing software
+	-do not need and cannot access the air traffic control server
+-define "lost" & "mishandled"
+-"software engineers" do not exist but database/appz programmer do
+-market to first class passengers especially for prototype
+
+lady malicious
+-include the cost to consumer in the problem statement
+	-inconvenience
+	-frustration
+-formal survey for flyers
+-signal interference /w GPS
+	-picture of frequencies that will/will not interfere
+	-really strong signals & dopplar effect!?
+-malicious intent, "spoofing"
+-more personnel needed
+-break-even analysis
+	-if airlines only break even, what wre the intangibles?
+-informal & formal survey
+-the limit of one hand luggage is not a strong problem statement. the limit is not enforced strictly.
+-training cost/complexity for the current bag handlers
+
+prof. raype
+-monumental magnitude
+	-scale the solution down...suggested problem of recovering unclaimed baggage
+	-include municipal airports (there are 9 airports here!?)
+-how many airports? how many airports do we need to be feasible?
+-people problem - you can't improve their efficiency of handling bags during misconnected flights
+-FedEx tracking
+-GPS doesn't work underground
+-customer's method of payment
+
+brunelle
+-changeable tag

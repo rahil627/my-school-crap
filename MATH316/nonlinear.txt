@@ -1,0 +1,9 @@
+linear examples
+transpose
+derivative
+integral of |R
+process of determining coordinate vector
+
+nonlinear examples
+exponential
+inverse

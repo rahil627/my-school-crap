@@ -1,0 +1,31 @@
+PART A
+1)B
+2)B, C, E
+3)D
+4)D
+
+PART B
+1)
+SELECT last_name, salary
+FROM employees
+WHERE rownum < 4;
+ORDER BY salary desc
+2)
+SELECT a.employee_id, a.last_name
+FROM employees a JOIN departments b
+ON (a.department_id=b.department_id)
+JOIN locations c
+ON (b.location_id=c.location_id)
+WHERE state_province IN 'California';
+3)
+4)
+SELECT e.employee_id, e.manager_id, j.grade_level-2, e.last_name
+FROM employees e JOIN departments d
+ON (e.department_id=d.department_id)
+JOIN job_grades j
+ON (e.salary BETWEEN j.lowest_sal AND j.highest_sal)
+WHERE grade_level IN (SELECT last_name FROM employees WHERE last_name = 'De Haan');
+5)
+6)
+7)
+8)

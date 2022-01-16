@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1170655847 c:\my files\school\cs 330\1\section.cpp
+	"course.h"
+	"section.h"
+	"split.h"
+	<algorithm>
+	<cassert>
+	<cstdlib>
+
+1170649383 c:\my files\school\cs 330\1\course.h
+	<iostream>
+	<string>
+	"section.h"
+	"sectionseq.h"
+
+1170653655 c:\my files\school\cs 330\1\section.h
+	<iostream>
+	<string>
+	"student.h"
+
+1170650709 c:\my files\school\cs 330\1\student.h
+	<string>
+	<iostream>
+
+1170650708 c:\my files\school\cs 330\1\sectionseq.h
+	"section.h"
+
+1170650708 c:\my files\school\cs 330\1\split.h
+	<string>
+

@@ -1,0 +1,28 @@
+Upon initial (6811) program execution  you are to provide a menu/instructions to the user on the LCD display. 
+When the user chooses to begin a new game, your program is to send a tilde '~' character to the PC, notifying it that a new game has started. 
+The user will enter a word on the PC. Once the word is entered the PC will send the number of letters in that word back to the 6811.
+The 6811 will then display underscores '_' for each letter in the word on the LCD display, and the number of guesses left for the game (initially 6).
+The user can break the beam a number of times until a letter of choice has been selected. By pressing the push button the user has confirmed his/her choice for a guess.
+The guess will be sent to the PC as an ASCII character (note that all communication with the PC is done this way).
+The PC will determine if the selected letter is in the word and it will reply first with a number of occurrences of that letter (and if more than 0 the space(s) where that letter appears in the word).
+The 6811 will update the LCD display accordingly until the number of guesses have been exhausted or the word has been revealed. 
+The 6811 will prompt the user is he/she wishes to play another game, and if so then the sequence will be repeated.
+
+
+
+push button - sets to transmit *random(can push once or twice)
+transmit ~
+sets to receive
+receive length
+inc update
+start main code
+
+
+
+receive length
+receive length
+
+
+the previous letter goes into the current position
+
+

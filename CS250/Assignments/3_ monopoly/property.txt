@@ -1,0 +1,130 @@
+S
+Go
+D
+Mediterranean Avenue
+Amethyst
+60 50 2 10 30 90 160 250 30
+S
+Community Chest
+D
+Baltic Avenue
+Amethyst
+60 50 4 20 60 180 320 450 30
+S
+Income Tax
+R
+Reading Railroad
+200
+D
+Oriental Avenue
+Cyan
+100 50 6 30 90 270 400 550 50
+S
+Chance
+D
+Vermont Avenue
+Cyan
+100 50 6 30 90 270 400 550 50 
+D
+Connecticut Avenue
+Cyan
+120 50 8 40 100 300 450 600 60
+S
+Jail
+D
+St. Charles Place
+Fuschia
+140 100 10 50 150 450 625 750 70
+U
+Electric Company 
+150
+D
+States Avenue
+Fuschia
+140 100 10 50 150 450 625 750 70
+D
+Virginia Avenue
+Fuschia
+160 100 12 60 180 500 700 900 80
+R
+Pennsylvania Railroad
+200
+D
+St. James Place
+Orange
+180 100 14 70 200 550 750 950 90
+S
+Community Chest
+D
+Tennessee Avenue
+Orange
+180 100 14 70 200 550 750 950 90
+D
+New York Avenue
+Orange
+200 100 16 80 220 600 800 1000 100
+S
+Free Parking
+D
+Kentucky Avenue
+Red
+220 150 18 90 250 700 875 1050 110
+S
+Chance
+D
+Indiana Avenue
+Red
+220 150 18 90 250 700 875 1050 110 
+D
+Illinois Avenue
+Red
+240 150 20 100 300 750 925 1100 120
+R
+B&O Railroad
+200
+D
+Atlantic Avenue
+Yellow
+260 150 22 110 330 800 975 1150 130
+D
+Ventnor Avenue
+Yellow
+260 150 22 110 330 800 975 1150 130
+U
+Water Works
+150
+D
+Marvin Gardens
+Yellow
+280 150 24 120 360 850 1025 1200 140
+S
+Go To Jail
+D
+Pacific Avenue
+Green
+300 200 26 130 390 900 1100 1275 150
+D
+North Carolina Avenue
+Green
+300 200 26 130 390 900 1100 1275 150
+S
+Community Chest
+D
+Pennsylvania Avenue
+Green
+320 200 28 150 450 1000 1200 1400 160
+R
+Short Line
+200
+S
+Chance
+D
+Park Place
+Blue
+350 200 35 175 500 1100 1300 1500 175
+S
+Luxury Tax
+D
+Boardwalk
+Blue
+400 200 50 200 600 1400 1700 2000 200

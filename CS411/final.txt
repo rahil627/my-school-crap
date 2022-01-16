@@ -1,0 +1,17 @@
+com
+tune
+type tags in
+go
+[demonstrate]
+exit
+
+i will be testing the use of wireless protocol used in current baggage handling systems.
+in the real world, passive RFID tags are used, but for the prototype, ODU provided us with a RuBee demonstration kit
+RuBee is more than capable of demonstrating anything RFID tags can
+
+as you can see, the tag ids are listed on the screen
+
+inside the airport, the antenna represents a scanner
+
+
+outside the airport, the antenna represents a cart

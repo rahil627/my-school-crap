@@ -1,0 +1,37 @@
+Ingeous
+1)Basalt
+2)Diorite
+3)Dunite
+4)Gabbro
+5)Granite
+6)Granite
+7)Obsidian
+8)Pumice
+9)Rhyolite
+10)Scoria
+11)Andesite
+12)Volcanic Tuff
+
+Sedimentary
+1)Limestone
+2)Coquina
+3)Rock Gypsum
+4)Fossiliferous Limestone
+5)Siltstone
+6)Arkose
+7)Rock Gypsum
+8)Conglomerate
+9)Chert
+10)Sandstone
+11)Sandstone
+12)Bituminous Coal
+
+Metamorphic
+1)Gneiss
+2)Schist
+3)Marble
+4)Slate
+5)Schist
+6)Quartzite
+7)Phyllite
+8)Anthracite Coal

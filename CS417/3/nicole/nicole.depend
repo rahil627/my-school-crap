@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1228547889 source:c:\documents and settings\rahil\my documents\my school\cs 417\me\3\nicole\power_method.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	<cmath>
+	<ctime>
+

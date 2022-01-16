@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1176083072 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\8\bucket_test.cpp
+	<fstream>
+	<iostream>
+	<list>
+	"bucket.h"
+
+1176083072 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\8\bucket.h
+

@@ -1,0 +1,22 @@
+Part A
+1)1158
+2)ALTER SYSTEM SET job_queue_processes = 15 SCOPE=MEMORY
+3)The value can be changed while the server is running?
+4)SHUTDOWN immediate
+5)...
+6)SHUTDOWN immediate
+7)ALTER DATABASE MOUNT->ALTER DATABASE OPEN
+8)...
+
+Part B
+1)...
+2)...
+3)a)85%
+  b)418
+  c)SH.CUSTOMERS_PK
+4)HR.REGIONS
+5)ERROR at line 1:
+  ORA-01653: unable to extend table HR.X by 128 in tablespace INVENTORY
+6)ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/ORCL/datafile/inventory01.dbf' RESIZE 50M
+7)...
+8)...

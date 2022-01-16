@@ -1,0 +1,11 @@
+FLAG
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| ID       | int(10)     | NO   | PRI | NULL    | auto_increment |
+| username | varchar(30) | NO   |     | NULL    |                |
+| keyword  | tinytext    | YES  |     | NULL    |                |
+| author   | varchar(30) | YES  |     | NULL    |                |
+| type     | char(1)     | YES  |     | f       |                |
+| tid      | int(10)     | YES  |     | -1      |                |
++----------+-------------+------+-----+---------+----------------+

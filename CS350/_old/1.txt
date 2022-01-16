@@ -1,0 +1,34 @@
+Klondike Solitaire
+
+Dealing
+A shuffled standard deck of playing cards are dealt onto the table.
+7 columns starting with 1 card on the leftmost column increasing to 7 cards on the rightmost column.
+All cards are dealt face down except for the last card in each column.
+
+Foundations
+Foundations are built UP and IN SUIT starting with an Ace and ending with a King
+
+Columns
+Columns are built DOWN (Ace to King) in ALTERNATING COLOR (red/black).
+
+All face up cards in any Column are available for movement to another Column as long as the build rule is followed.
+
+The topmost card in any Column is available for play to either another Column or a Foundation. When a face down card is the topmost card in a Column, it is flipped face up.
+
+Empty Columns may be filled with any card or cards that may be validly moved.
+
+
+Stock
+Cards from the Stock are flipped three at a time to a Discard Pile. When no cards remain in the Stock, the cards from the Discard Pile can be flipped over and gone through an unlimited number of times.
+
+Discard Pile
+Only the top card of the Discard Pile may be played elsewhere. When a card from the Discard Pile is played then the new top card can also be played.
+
+There are different ways of dealing the remainder of the deck:
+
+    * Turning three cards at once to the waste, either allowing three passes through the deck or placing no limit on passes through the deck.
+    * Turning three cards at once, reversing the order of each group of three as the cards are dealt.
+    * Turning only one card at a time, but only passing through the deck once
+
+rest of story
+

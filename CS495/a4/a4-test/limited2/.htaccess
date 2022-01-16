@@ -1,0 +1,8 @@
+AuthType Digest
+AuthName "Colonial Place"
+#AuthDigestDomain http://www.cs.odu.edu/~mln/teaching/cs595-s06/a4-test/limited2/
+#AuthDigestDomain /~mln/teaching/cs595-s06/a4-test/limited2/
+
+AuthDigestProvider file
+AuthUserFile /home/mln/passwd-digest
+Require valid-user

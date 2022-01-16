@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1168819543 c:\my files\school\cs 361\week 1\roster\roster.cpp
+	<iostream>
+	<list>
+	<string>
+	<fstream>
+

@@ -1,0 +1,83 @@
+	LDAA 	CNTR		;IF CNTR NOT = 0
+	BNE	OC3END		;EXIT INTERRUPT
+
+	LDAA 	STATE 		;Branches based on state
+	BEQ 	STATEZERO
+	BRA 	STATEONE
+
+	
+GETDIG	LDAA #0		;Separates the upper and lower bits of the counter via division
+	LDAB VALUE
+	LDX #$0010
+	IDIV
+	STAB LB
+	XGDX
+	LDX #$0031
+	BRA COMP
+	
+STATEZERO LDAA #20	;Makes the interrupt 0.2seconds, increments the state
+	  STAA CNTR
+	  INC STATE
+	  BRA GETDIG	
+
+STATEONE LDAA SPDMODE	;Loads the time based on the speed of display, either 0.3 or 0.8 seconds
+	 CMPA FST
+	 BEQ FAST
+	 LDAA #80	;Times the interrupt in normal mode
+	 STAA CNTR
+	 DEC STATE
+	 BRA COUNTER 
+	
+FAST	LDAA #30	;Times the interrupt in fast mode
+	STAA CNTR
+	DEC STATE
+	BRA COUNTER
+
+OC3END	DEC     CNTR          ;DEC TIME BASE COUNTER
+	RTI                   ;EXIT
+		
+COUNTER	LDX #$0031	
+	LDAA PEMODE	;Checks whether paused or enabled
+	CMPA PAUSED
+	BEQ LOADVAL	;If paused, skips incrementing/decrementing the counter
+	LDAA INCMODE	
+	CMPA PLU
+	BEQ INCREMENT 
+	BRA DECREMENT
+
+INCREMENT LDAA VALUE	;Increments the counter
+	  ADDA STRDCNT
+	  STAA VALUE
+LOADVAL	  LDAB LB	;Loads the lower bit of the counter into ACCA.
+	  BRA COMP
+
+DECREMENT LDAA VALUE	;Decrements the counter
+	  SUBA STRDCNT
+	  STAA VALUE
+	  LDAB LB
+	  BRA COMP
+
+COMP	LDAA 0, X	; Loads Accumulator B with the value found where X points 
+	CBA		; Compares B to A
+	BEQ OUTB	; If B = A then branches to OUTB subroutine
+	DEX		; Else decrements pointer X
+	BRA COMP	; Else loops
+
+***  TAKES CARE OF DECIMAL POINT
+DP	LDAA PORTB	; Load value of PORTB into B
+DP2	LDAB #%10000000	; Else, load B with binary 10000000
+	SBA		; Subtract B from A to account for Decimal
+	BMI OC3END	; If the decimal is already lit, return to main
+	STAA PORTB	; Restore A to PORTB
+	BRA  OC3END	; Return to main
+
+OUTB	INX
+	LDAA 0, X
+	LDAB PEMODE
+	CMPB PAUSED
+	BEQ DP2	
+	STAA PORTB	; Stores value in A into PORTB
+	BRA OC3END	; Branches out of the interrupt
+
+
+

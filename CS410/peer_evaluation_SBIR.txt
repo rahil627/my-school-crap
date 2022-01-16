@@ -1,0 +1,24 @@
+Green Member		Participation	Quantity	Quality	Professionalism	Grade
+Jeremy Sellen       	9             	9		9       10		A
+Ashley Casper      	9             	9		10      9		A
+Neil Monday		9		9		9	9		A
+Joel Elixson		9		10		9	9		A
+Alexander Hitchens	4		2		6	6		D-
+
+Me (Rahil Patel)
+I  created the SBIR.
+
+Jeremy Sellen
+First editor. Also did a couple of the forms to help me out.
+
+Ashley Casper 
+Second editor.
+
+Neil Monday
+-
+
+Joel Elixson
+-
+
+Alexander Hitchens
+-

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="..\course.h" open="0" top="0">
+		<Cursor position="1545" topLine="39"/>
+	</File>
+	<File name="..\enrollmentReport.cpp" open="1" top="0">
+		<Cursor position="411" topLine="30"/>
+	</File>
+	<File name="..\section.h" open="1" top="0">
+		<Cursor position="232" topLine="0"/>
+	</File>
+	<File name="..\sectionseq.h" open="1" top="1">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Headers"/>
+</CodeBlocks_layout_file>

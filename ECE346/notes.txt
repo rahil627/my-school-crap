@@ -1,0 +1,74 @@
+run the program
+reset button
+enter
+load t
+enter
+upload
+GO 0100
+
+
+mm - memory modify
+md - show memory
+
+assembly operations
+
+
+accumulator - 8-bit general purpose register, add/sub/cmp use A & B but result goes in A
+LDAA/LDAB
+STAA/STAB
+
+X/Y
+LDX
+LDY
+
+comparisons
+CMPA
+CMPB
+
+branching
+BEQ	branch if equals
+BNE	branch if not equals
+BRA	branch always
+
+increment
+INC/INX/INY/INA/INB
+DEC/DECX/DECA/DECB
+
+accumulator D uses both A & B creating a 16-bit register to do 16-bit add/submul/div
+
+
+	//simple loop
+	LDAA	#10
+	STAA	COUNTER
+
+LOOP	do stuff
+	DEC COUNTER
+	BNE LOOP
+	
+
+
+BRA uses 1 less byte but can only be used if its 128 bytes or closer
+JSR - can be used anywhere
+EQU - for memory addresses
+FCB - for declaring variables
+loop from example one vs our loop
+
+
+
+must reset between executions
+
+
+;counter attempt #1
+;INPUT	JSR INCHAR 	; LDAA PORTE ;Read input from bufflo
+;	CMPA TERM  	; Compare it to the termination symbol  (A-$23)
+;	BEQ EXIT   	; If it is the same then exit (=0 ?) check Z CCR bit	
+
+;	LDX #$0014 ; Point X to the end of my data	
+
+;COMP	LDAB 0, X	; Load B with data where X is pointing 
+	;CBA		; Compare B to A
+	;BEQ OUTB   	; If they are the same, then print it out on PortB
+ 
+	;DEX	   	; X = X -1 (Point X to the next value of my data)
+	;BEQ ERROR  	; If X = 0 then no match was found, go to error display
+	;BRA COMP  	 ; otherwise loop

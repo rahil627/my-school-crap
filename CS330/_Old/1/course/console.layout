@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="..\course.cpp" open="0" top="0">
+		<Cursor position="59" topLine="0"/>
+	</File>
+	<File name="..\course.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="..\section.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="..\split.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+</CodeBlocks_layout_file>

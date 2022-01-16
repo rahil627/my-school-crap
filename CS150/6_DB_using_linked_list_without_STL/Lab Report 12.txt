@@ -1,0 +1,46 @@
+(1)	1.Get the Dynamic Memory for the Head Pointer (First node).
+	2.Populate the node by assigning the values for the structure members.
+	3.Assign NULL to the Next Pointer.
+	4.Create a new node.
+	5.Populate the node by assigning the values for the structure members.
+	6.Move Next Pointer to next link.
+	7.Assign NULL to the Next Pointer.
+	8.Create a new node.
+	9.Populate the node by assigning the values for the structure members.
+	10.Move Next Pointer to next link.
+	11.Assign NULL to the Next Pointer.
+
+(2)	i.	after the Next Pointer
+	ii.	before the Next Pointer
+	iii.	Before the First Node
+	
+	i.	after the Next Pointer
+	ii.	Before the Next Pointer
+	iii.	The First Node
+
+(3) 	1.Diagram A	[NODE HEAD]->[N1]->[N2]->[N3]->[NULL]
+	  create/declare node *head
+	  insert node head before node1
+	
+                                  [POINTER]-v
+	2.Diagram B	[NODE HEAD]->[N1]->[N2]->[N3]->[NULL]
+		         [Newnode]->[MIDDLE NODE]-^
+	  create/declare pointer + newNode variables
+	  place pointer at N2
+	  place newNode at pointer's link
+	  create middle node using newNode
+	                    [pointer]-v
+	3.Diagram C?	[NODE HEAD]->[N2]->[N3]->[NULL]
+		     		    [MIDDLE NODE]-^
+	  move pointer link over twice
+	  delete pointer
+
+	
+(4)
+node *last = head;
+cout<<head->SID
+    <<head->name;
+do{last = last->link;}
+while (last != NULL)
+cout<<last->SID;
+cout<<last->name;

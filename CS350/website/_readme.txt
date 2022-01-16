@@ -1,0 +1,1 @@
+to test the web pages, double-click welcome.html and each [user]_frameset.html

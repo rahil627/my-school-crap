@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1168481506 c:\my files\school\cs 361\week 1\llist\llist_samp.cpp
+	<iostream>
+	<list>
+	<string>
+

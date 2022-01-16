@@ -1,0 +1,65 @@
+1) True
+2) False
+3) True
+4)
+SELECT ROUND(MAX(salary),0) "Maximum",
+       ROUND(MIN(salary),0) "Minimum",
+       ROUND(SUM(salary),0) "Sum",
+       ROUND(AVG(salary),0) "Average"
+FROM employees;
+
+5)
+SELECT job_id,
+       ROUND(MAX(salary),0) "Maximum",
+       ROUND(MIN(salary),0) "Minimum",
+       ROUND(SUM(salary),0) "Sum",
+       ROUND(AVG(salary),0) "Average"
+FROM employees
+GROUP BY job_id
+ORDER BY job_id;
+
+6a)
+SELECT job_id, count(*)
+FROM employees
+GROUP BY job_id;
+
+6b)
+SELECT job_id, count(*)
+FROM employees
+WHERE job_id='&job_title'
+GROUP BY job_id;
+
+7)
+SELECT COUNT(DISTINCT manager_id) "Number of Managers"
+FROM employees;
+
+8)
+SELECT MAX(salary)-MIN(salary) difference
+FROM employees;
+
+9)
+SELECT manager_id, min(salary)
+FROM employees
+WHERE manager_id IS NOT NULL
+GROUP BY manager_id
+HAVING min(salary)>6000
+ORDER BY min(salary) DESC;
+
+10)
+SELECT COUNT(*) total, 
+       SUM(DECODE(TO_CHAR(hire_date, 'YYYY'),1995,1,0)) "1995",
+       SUM(DECODE(TO_CHAR(hire_date, 'YYYY'),1996,1,0)) "1996",
+       SUM(DECODE(TO_CHAR(hire_date, 'YYYY'),1997,1,0)) "1997",
+       SUM(DECODE(TO_CHAR(hire_date, 'YYYY'),1998,1,0)) "1998"
+FROM employees;
+
+11)
+SELECT job_id "Job", 
+       SUM(DECODE(department_id,20,salary)) "Dept 20",
+       SUM(DECODE(department_id,50,salary)) "Dept 50",
+       SUM(DECODE(department_id,80,salary)) "Dept 80",
+       SUM(DECODE(department_id,90,salary)) "Dept 90",
+       SUM(salary) "Total"
+FROM employees
+GROUP BY job_id
+ORDER BY job_id;

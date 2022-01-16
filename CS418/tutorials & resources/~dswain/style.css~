@@ -1,0 +1,71 @@
+<style type="text/css">
+body, td {font: normal 12px verdana;}
+
+.Outer {	 
+	position: relative;
+	background:white;
+	z-index:3;
+	height: auto; 
+	line-height:2em; 
+	width:600px;
+	border-width: 0px;
+	font: normal 12px verdana;
+	background-image:url(innerbg.jpg);
+}
+.Logo {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+
+	position: relative;
+	height: 100px;
+	line-height:1.2em;
+	width:600px;
+	z-index:2;  
+	font: normal 40x verdana;
+	text-align:center;
+		background-image:url(logo.jpg);
+	color: blue;
+}
+
+.Login {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:600px;
+	z-index:2;  
+	font: normal 15px verdana;
+	text-align:center;
+}
+
+.menu {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:600px;
+	z-index:2;  
+	font: normal 12px verdana;
+	text-align:center;
+	background:#46d300; 
+	font:arial;
+}
+.body {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:600px;
+	z-index:2;  
+	font-size:13px;
+	text-align:left
+    font: normal 12px verdana;
+}
+</style>

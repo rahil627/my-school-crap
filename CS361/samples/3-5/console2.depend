@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1178001943 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\3-5\interface_test.cpp
+	<iostream>
+	<cmath>
+	<ctime>
+	<list>
+	"normal.h"
+	"sensor2.h"
+	"flechette.h"
+
+1173079566 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\3-5\normal.h
+
+1173079567 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\3-5\sensor2.h
+
+1177992539 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\3-5\flechette.h
+

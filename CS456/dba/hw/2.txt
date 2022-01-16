@@ -1,0 +1,7 @@
+Questions
+1) advanced -> control file autobackup
+2)/u01/app/oracle/oradata/ORCL/onlinelog/
+/u01/app/oracle/flash_recovery_area/ORCL/onlinelog/
+
+show SQL statements
+5)FLASHBACK TABLE HR.DEPARTMENTS2 TO SCN 3394328

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="alpha_beta.h" open="0" top="0">
+		<Cursor position="11" topLine="0"/>
+	</File>
+	<File name="alpha_beta_test.cpp" open="0" top="0">
+		<Cursor position="470" topLine="24"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Headers"/>
+</CodeBlocks_layout_file>

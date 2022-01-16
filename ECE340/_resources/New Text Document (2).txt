@@ -1,0 +1,81 @@
+-------------------------------------------------------------------------------
+--
+-- Title       : Test Bench for lab6
+-- Design      : lab6l
+-- Author      : BCET
+-- Company     : ODU
+--
+-------------------------------------------------------------------------------
+--
+-- File        : $DSN\src\TestBench\lab6_TB.vhd
+-- Generated   : 11/4/2008, 9:40 PM
+-- From        : $DSN\src\lab6l.vhd
+-- By          : Active-HDL Built-in Test Bench Generator ver. 1.2s
+--
+-------------------------------------------------------------------------------
+--
+-- Description : Automatically generated Test Bench for lab6_tb
+--
+-------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+	-- Add your library and packages declaration here ...
+
+entity lab6_tb is
+end lab6_tb;
+
+architecture TB_ARCHITECTURE of lab6_tb is
+	-- Component declaration of the tested unit
+	component lab6
+	port(
+		Q1 : in std_logic;
+		Q0 : in std_logic;
+		x : in std_logic;
+		Ya : out std_logic;
+		Yb : out std_logic;
+		Yc : out std_logic );
+	end component;
+
+	-- Stimulus signals - signals mapped to the input and inout ports of tested entity
+	signal Q1 : std_logic;
+	signal Q0 : std_logic;
+	signal x : std_logic;
+	-- Observed signals - signals mapped to the output ports of tested entity
+	signal Ya : std_logic;
+	signal Yb : std_logic;
+	signal Yc : std_logic;
+
+	-- Add your code here ...
+
+begin
+
+	-- Unit Under Test port map
+	UUT : lab6
+		port map (
+			Q1 => Q1,
+			Q0 => Q0,
+			x => x,
+			Ya => Ya,
+			Yb => Yb,
+			Yc => Yc
+		);
+
+	-- Add your stimulus here ...
+
+x <= '0', '1' after 20ns, '0' after 40ns, '1' after 60ns, '0' after 80ns,
+'1' after 100ns, '0' after 120ns, '1' after 140ns;
+Q0 <= '0', '1' after 40ns, '0' after 80ns, '1' after 120ns;
+Q1 <= '0', '1' after 80ns;
+
+end TB_ARCHITECTURE;
+
+configuration TESTBENCH_FOR_lab6 of lab6_tb is
+	for TB_ARCHITECTURE
+		for UUT : lab6
+			use entity work.lab6(lab6);
+		end for;
+	end for;
+end TESTBENCH_FOR_lab6;
+

@@ -1,0 +1,90 @@
+<?php session_start();
+include 'protect.php'; include 'lib.php'; 
+
+
+
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+  
+<HTML>
+  <HEAD>
+    <LINK href="style.css" rel="stylesheet" type="text/css">
+  </HEAD>
+  <BODY>
+    
+    
+<div class="Outer">
+
+<div class="Logo">
+</div>
+
+<div class="Login">
+        <?php start('a'); ?>
+        Welcome <?php echo $_SESSION['user']; ?> !
+        <?php stop('a'); ?>
+        
+        <?php start('a'); ?>                 
+            <form action="index.php" method="post">
+            <input type="hidden" name="out" value="1">
+            <input type="submit" value="logout">
+            </form>
+        <?php stop('a'); ?>
+        
+        <?php start('o'); ?>
+            <form action="index.php" method="post">
+            <table width=200 border=1><tr><td width=50>
+            name:
+            </td><td>
+            <input type="text" name="sn">
+            </td></tr><tr><td>
+            password:
+            </td><td>
+            <input type="password" name="pw">
+            </td></tr><tr><td colspan=2>
+            <input type="submit" value="submit">
+            </td></tr></table>
+            </form>
+        <?php stop('o'); ?>    
+</div>
+    
+<div class="menu">
+  <a href="index.php">Home</a>  
+</div>
+    
+<div class="body">
+    
+       <?php
+          $list=list_forum();  
+          $s=sizeof($list);
+       ?>
+       
+       <table width=500>
+            <tr><td width=150>
+               Forum Name
+               </td><td width=300>
+               Description
+               </td><td width=50>
+               Size
+               </td></tr>
+               <?php   
+                    for($i=1;$i<=$s;$i++) 
+                    {
+                        echo "<tr><td width=150>";
+                        echo "<a href='showforum.php?id=".$list[$i][3]."'>".$list[$i][0]."</a>";
+                        echo "</td><td width=300>";
+                        echo $list[$i][1];
+                        echo "</td><td width=50>";
+                        echo $list[$i][2];
+                        echo "</td></tr>";     
+                    }
+                  
+                ?>
+         </table>
+</div>
+</div>    
+    
+    
+  </BODY>
+</HTML>

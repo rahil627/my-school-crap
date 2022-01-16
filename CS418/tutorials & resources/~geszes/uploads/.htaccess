@@ -1,0 +1,4 @@
+AuthUserFile /dev/null
+<LIMIT GET POST>
+require valid-user
+</LIMIT>

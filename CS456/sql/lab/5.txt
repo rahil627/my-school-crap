@@ -1,0 +1,28 @@
+1)A
+2)A, D, E
+3)D
+4)E
+5)D
+6)A
+7)B
+8)B, E
+9)see below
+10)C
+11)A
+12)E
+13)C
+
+CREATE TABLE EMPLOYEE
+(
+	employee_id	VARCHAR2(25),
+	emp_lname	VARCHAR2(25),
+	emp_fname	NUMBER,
+	dept_id		NUMBER CONSTRAINT employees_dept_fk
+				REFERENCES department(dept_id),
+	job_id		NUMBER CONSTRAINT employees_job_fk
+				REFERENCES job(job_id),
+	mgr_id		NUMBER REFERENCES employee_id,
+	salary		NUMBER(9, 2),
+	hire_date	DATE
+);
+

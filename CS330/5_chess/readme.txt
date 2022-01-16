@@ -1,0 +1,1 @@
+we had to finish the program by adding the code for movement of many peices...i think knight was given

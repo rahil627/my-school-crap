@@ -1,0 +1,28 @@
+1)
+CREATE TABLE dept
+	(id NUMBER(7) CONSTRAINT dept_id_pk PRIMARY KEY,
+	 name VARCHAR2(25));
+
+DESCRIBE dept;
+
+2)
+INSERT INTO dept
+	SELECT department_id, deparment_name
+	FROM   departments;
+
+3)
+CREATE TABLE emp
+	(id NUMBER(7),
+	 last_name VARCHAR2(25),
+	 first_name VARCHAR2(25),
+	 dept_id NUMBER(7) CONSTRAINT emp_dept_id_fk REFERENCES dept(id));
+
+DESCRIBE emp;
+
+4)
+CREATE TABLE employees2 AS
+	SELECT employee_id id, first_name, last_name, salary, deparment_id dept_id
+	FROM   employees;
+
+5)
+DROP TABLE emp;

@@ -1,0 +1,3 @@
+Could you fix or explain to me why I have to press enter twice when i try to use getline(cin, string2); ?
+I understand using a cin>>string1; doesn't take the hidden "\n"...
+but I have tried cin.ignore() and getline(cin, dummyString)

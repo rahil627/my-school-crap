@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1178060324 c:\documents and settings\rahil patel\my documents\school\cs 361\2\4\main.cpp
+	<iostream>
+	<string>
+	<map>
+	<list>
+	<cmath>
+	<cstdlib>
+	<ctime>
+	<iomanip>
+	"header.h"
+
+1178060207 c:\documents and settings\rahil patel\my documents\school\cs 361\2\4\header.h
+

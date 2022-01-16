@@ -1,0 +1,80 @@
+<?php
+             
+     // session_start();  
+require('config.php');
+   if($_SESSION['user']!=""  && $_POST['out']!="1"){  $_SESSION['online']='a';    }
+   else{
+      if( !isset($_SESSION['online']) ) //if cookie isnt set, set to 0.
+          {
+          $_SESSION['online']='o';
+          }
+      else
+          {
+          if( $_SESSION['online']!='o' )  //if it is set,and is logged on(a or u)
+               {
+               if( isset($_POST['out']) )
+                    {
+                     if ( $_POST['out']=="1" ) //and if we got a logout command -> set cookie to 'o'
+                          {$_SESSION['online']='o';
+                          $_SESSION['user']="";
+                          unset($_POST['out']);
+                          }
+                     }
+                }
+           else
+               {
+               if(isset($_POST['sn']) && isset($_POST['pw']) ) //if cookie set, and pw & sn were entered
+                      {
+                     
+    mysql_connect(host,sn,pw);
+    mysql_select_db(db);
+                        $uid=$_POST['sn'];
+                        $pw=$_POST['pw'];
+                        if(mysql_num_rows(mysql_query("SELECT username FROM user WHERE username = '$uid'")))
+                        {
+                            if(mysql_num_rows(mysql_query("SELECT password FROM user WHERE username = '$uid' AND password='$pw'")))
+                            {
+                                  if(mysql_num_rows(mysql_query("SELECT privilege FROM user WHERE username = '$uid' AND 					privilege='a'")))
+                                  { 
+                                         $_SESSION['online']='a';
+                                         $_SESSION['user']=$_POST['sn'];
+                                  }                  
+                                  if(mysql_num_rows(mysql_query("SELECT privilege FROM user WHERE username = '$uid' AND 					         privilege='m'")))
+                                  { 
+                                         $_SESSION['online']='m';
+                                         $_SESSION['user']=$_POST['sn'];
+                                  }   
+				  if(mysql_num_rows(mysql_query("SELECT privilege FROM user WHERE username = '$uid' AND 					         privilege='u'")))
+                                  { 
+                                         $_SESSION['online']='u';
+                                         $_SESSION['user']=$_POST['sn'];
+                                  }  
+                
+                            }
+                            else
+                            {
+                                echo "Invalid password<br>";
+                                $_SESSION['online']='o';
+                            }                            
+                        }
+                        else
+                        {
+                            echo "Invalid user name<br>"; 
+                            $_SESSION['online']='o';
+                        }                          
+                        mysql_close();                              
+                            }}}
+                            }              
+      function start($p)
+           {
+               if($_SESSION['online']!=$p)
+               {echo "<!-- ";} 
+           }
+
+      function stop($p)
+           {
+                if($_SESSION['online']!=$p)
+                {echo " -->";} 
+           }  
+                   
+      ?>

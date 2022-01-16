@@ -1,0 +1,211 @@
+cout<<"RABBLE RABBLE RABBLE";//test
+displayPersonnel(head1); system("pause");//test
+
+cout<<"Found file!\n";system("pause");cout<<endl;
+
+					cout<<L<<F<<ID<<S;
+					system("pause");
+			cout<<ID;
+			cout<<h1->getID();
+
+
+std::cout << "Please enter NORTH, SOUTH, EAST, WEST, or NONE for our wind direction";
+std::cout << std::endl;
+
+string input_wind_dir;
+cin >>
+
+wind_directions_t wind_dir;
+
+if ( user_wind_dir == "NORTH" )
+{
+        wind_dir = NORTH_WIND;
+}
+else if ( user_wind_dir == "SOUTH" )
+{
+        wind_dir = SOUTH_WIND;
+}
+else if ( user_wind_dir == "EAST" )
+{
+        wind_dir = EAST_WIND;
+}
+else if ( user_wind_dir == "WEST" )
+{
+        wind_dir = WEST_WIND;
+}
+else if ( user_wind_dir == "NONE" )
+{
+        wind_dir = NO_WIND;
+}
+else
+{
+        std::cout << "That's not a valid direction!" << std::endl;
+}
+
+
+personnel * sortId(personnel * h1)
+{
+	personnel * p1;
+	personnel * p2;
+	//int value;//temporary value used to exchange data between pointers
+	p1 = p2 = h1;	
+	//p2 = h1;
+	//p1 = h1;
+	while(p1 != NULL)
+	{	
+		p2 = p1;
+	
+		while(p2 !=NULL)
+		{
+			if(p1->getId() < p2->getId()){p2=p1;} 				
+
+			p2=p2->getNext();
+		}
+	
+		//value=p2->getId();
+		//p2->getId()=p1->getId();
+		//p1->getId()=value;
+
+		p2->setId(p1->getId());
+		//curr1 = p2;
+		//p2 = p1;
+		//p1 = curr1;
+		
+
+		p1=p1->getNext();
+	}
+	
+	return h1;
+}
+
+
+gen * bubble(gen * h)
+{// we need three temporary pointers
+if (h==NULL){cout<<"empty list"<<endl; return NULL;}
+gen * prev2;
+gen * prev1 = h;
+gen * curr = h->getnext();
+
+while(curr!=NULL)
+     {
+
+     if(h==prev1 )//make sure you are comparing the first two..
+          {     //if first two wrong
+          if(prev1->getid()>curr->getid())
+               {
+               //move the pointers to effect the swap
+               h=curr;
+               prev1->setnext(curr->getnext());
+               curr->setnext(prev1);
+               //now...reset the names to start again
+               prev1 = h;
+               curr=h->getnext();
+               }
+           else  //FIRST TWO CORRECT!!
+               {prev2=prev1;
+                prev1=curr;
+                curr=curr->getnext();
+                }
+          }
+     else //comparing two in the middle of list somewhere...
+          {    
+          //if wrong do this..       
+          if(prev1->getid()>curr->getid())
+                {
+                 prev2->setnext(curr);
+                 prev1->setnext(curr->getnext());
+                 curr->setnext(prev1);
+                 //now..start ALL OVER
+                 prev1=h;
+                 curr=h->getnext();
+                }
+          //if right..do this
+          else{
+                prev2=prev1;
+                prev1=curr;
+                curr=curr->getnext(); //everyone move down one
+                }
+          }
+     
+  // cout<<"************** IN SORTER ***********"<<endl;
+  //   showlist(h);
+  //   system("pause");
+     }
+return h;
+}
+
+
+//enum security{Normal, High, Secret, Top_Secret};
+//security securityLevel;
+
+
+
+	//skillSet mySkillSet;// = new skillSet;//samip's idea--for class pointer
+
+	//using struct-easiest if possible...
+	//getStructSkillSet getStructSkillSet(){return structSkillSet;}
+	//structSkillSet(skill s){skill=s; next=NULL;}
+
+	//using pointer-in main, point to pointer?
+	//structSkillSet getSkillSet(){return skillSet;}
+	
+	//using structType
+	//void setStructSkillSet(structSkillSet s){skillSet=s;}
+	//void setSkill(string s){skillSet.skill=s; skillSet.next = NULL;}
+	//structSkillSet getSkillSet(){return skillSet;}
+
+	//head1->getStructSkillSet * head2=NULL;//struct
+	//head1->getSkillSet * head2=NULL;//pointer
+	//head1->getSkillSet * head2=NULL;//structType
+
+	//skillSet variables
+	struct structSkillSet
+	{  
+		string skill;
+		structSkillSet *next;
+	};
+
+	//structSkillSet *skillSet;//pointer
+	//structSkillSet skillSet;//structType
+
+		//set functions
+	//void setSkill(string s){skill=s;}
+
+		//mySkillSet = skillSet();//doesn't work
+	//skillSet *contruct(skillSet mySkillSet){mySkillSet=mySkillSet.skillSet(); return mySkillSet;}
+	void display2(skillSet mySkillSet){mySkillSet.display();}//works...can copy all functions?
+
+	skillSet mySkillSet;//class
+	skillSet getMySkillSet(){return mySkillSet;}
+
+	
+	//void setMySkillSet2(skillSet *s){mySkillSet *s}
+	//void set(string L, string F, int I, string S){lastName=L; firstName=F; id=I;  securityLevel=S;}
+	 //newPersonnel->set(L, F, I, S);
+
+	string k;
+	k="bob";
+	h2=new skillSet(k);
+	h2->display();
+	
+	//h1->getMySkillSet * h2;//if use class
+			//h1->set(L, F, I, S);
+						//curr1->set(L, F, I, S);
+
+								if(option==1)
+		if(option==2)
+		if(option==3)
+		if(option==4)
+		if(option==5)
+		if(option==6)
+		if(option==7)
+		if(option==8)
+		if(option==9)
+		if(option==10)
+		if(option==11)
+
+	cout<<"Loaded successfully!\n\n";
+	system("pause");
+
+	//if(h2==NULL){/*don't update*/;}//if the agent's doesn't have any skills
+	//else

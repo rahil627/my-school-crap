@@ -1,0 +1,5 @@
+300: ftp://ftp.cs.odu.edu/pub/zeil/cs330/Assignments/
+200: filename content-length last-modified file-type
+201: "diffAnalysis.sh" 222 Sun%2C%2022%20May%202006%2000%3A00%3A00 FILE 
+201: "diffAnalysis.sh~" 184 Sun%2C%2022%20May%202006%2000%3A00%3A00 FILE 
+201: "enrollment" 0 Sun%2C%2030%20Jan%202007%2018%3A25%3A00 DIRECTORY 

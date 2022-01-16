@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Fried Twice"
+AuthUserFile /home/mln/passwd
+require valid-user

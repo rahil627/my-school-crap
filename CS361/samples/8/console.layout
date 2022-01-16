@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="bucket.h" open="1" top="0">
+		<Cursor position="256" topLine="0"/>
+	</File>
+	<File name="bucket_test.cpp" open="1" top="0">
+		<Cursor position="303" topLine="1"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Headers"/>
+</CodeBlocks_layout_file>

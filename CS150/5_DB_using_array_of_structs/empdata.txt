@@ -1,0 +1,84 @@
+Adam Perry
+8
+s
+180000
+HR
+Manager
+John Williams
+5
+s
+175000
+Production
+Manager
+Natasha Wilson
+15
+s
+145000
+Administration
+Budget Analyst
+Adam Smith
+1
+s
+180000
+Marketing
+Manager
+Joe Thomson
+3
+h
+500000
+Marketing
+Sales Executive
+Catherine Jones
+10
+s
+144000
+Production
+Technical Advisor
+John Williams
+12
+s
+175000
+HR
+Consultant
+Jonathan Higgins
+14
+h
+600000
+HR
+Office Assistant
+Martha Stewart
+4
+s
+165000
+Administration
+Assistant Manager
+Steve Richards
+2
+s
+144000
+Marketing
+Trainee
+Mary Robinson
+13
+h
+550000
+Administration
+Office Assistant
+Richard Burton
+9
+s
+144000
+Marketing
+Trainee
+Mary Williams
+7
+s
+144000
+HR
+Trainee
+Paul Simons
+11
+s
+180000
+Administration
+Manager

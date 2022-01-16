@@ -1,0 +1,37 @@
+Patel
+Rahil
+3
+4
+Computer Warfare
+Infiltration
+Long-range Weaponry
+*
+Lavapie
+John
+7
+2
+Thievery
+Dagger Proficiency
+*
+Jaring
+Jason
+13
+3
+Alchemy
+Assassination
+Espionage
+*
+Aniston
+Jennifer
+33
+1
+Acting
+Charm
+*
+Miller
+Andrew
+2
+3
+Jedi Force
+Lightsaber Proficiency
+*

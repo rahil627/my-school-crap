@@ -1,0 +1,11 @@
+PART A
+1) in the undotbs1 tablespace
+2) it's a system parameter in the startfile for the database
+3) all the users started with a "CONNECT" role which i assume contains create session.
+
+PART B
+5) b-tree is appropriate here because we will be changing this database a lot throughout the course.
+8) ALTER TABLE "INVENTORY"."PRODUCT_MASTER" ADD ( "PRIMARY_SOURCE" VARCHAR2(50), "SECONDARY_SOURCE" VARCHAR2(50))
+9) CASCADE CONSTRAINTS
+12) USER_CONSTRIANTS
+13) 3

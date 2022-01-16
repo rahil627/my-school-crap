@@ -1,0 +1,151 @@
+hostname:mln-web.cs.odu.edu
+username:rpatel
+password:pa00579575
+        :mysql -u rpatel -p
+password:0SVO53lw
+database:use rpatel;
+URL:http://mln-web.cs.odu.edu/~rpatel/
+
+mysql -u [username] -p
+show databases
+use [database]
+show tables from [database]
+describe [table]
+select * from [column];
+set password=[new password]
+
+CREATE TABLE users
+(
+	id       MEDIUMINT   NOT NULL UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ 	username	VARCHAR(60) NOT NULL, 
+	password	VARCHAR(60) NOT NULL,
+	role		VARCHAR(6)  default 'user',
+	pagination	TINYINT UNSIGNED NOT NULL default '5',
+	email		VARCHAR(50) NOT NULL,
+	status		VARCHAR(15) NOT NULL default 'deactivated'
+);
+INSERT INTO users (username, password, role) VALUES (‘rahil’, md5(‘rahil’), 'master');
+ALTER TABLE users ADD role varchar(6) NOT NULL;
+ALTER TABLE users DROP roles;
+UPDATE users SET role="master" WHERE username="ndn";
+ALTER TABLE users ALTER role SET default "user";
+DELETE FROM users WHERE id=5;
+ALTER TABLE users CHANGE ID id INTEGER;//rename column
+ALTER TABLE users ADD pagination SMALLINT UNSIGNED NOT NULL default '5';
+ALTER TABLE users ADD email varchar(50) NOT NULL;
+UPDATE users SET email="Rahil627@gmail.com" WHERE id=1;
+ALTER TABLE `users` CHANGE `id` `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE users ADD status VARCHAR(15) NOT NULL default 'deactivated';
+ALTER TABLE users ADD rank VARCHAR(30) NOT NULL default 'bum';
+ALTER TABLE users DROP rank;
+ALTER TABLE users ADD keyword_notifications varchar(200) NOT NULL default 'none';
+ALTER TABLE users ADD user_notifications varchar(200) NOT NULL default 'none';
+ALTER TABLE users DROP keyword_notifications;
+ALTER TABLE users DROP user_notifications;
+ALTER TABLE users ADD notifications varchar(200) NOT NULL default 'none';
+
+CREATE TABLE forums
+(
+ id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+ title varchar(255) NOT NULL default '(no title)',
+ invisibility varchar(1) NOT NULL default '0',
+ PRIMARY KEY (id)
+);
+INSERT INTO forums(id, title) values(1, "Computers");
+UPDATE posts SET forumid="1";
+UPDATE forums SET title="Computers" WHERE id=1;
+SELECT * FROM posts WHERE postid=48;
+ALTER TABLE forums ADD delete varchar(1) NOT NULL default '0';
+
+CREATE TABLE topics
+(
+ id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+ title varchar(255) NOT NULL default '(no title)',
+ forumid tinyint NOT NULL,
+ FOREIGN KEY (forumid) REFERENCES forums(id),
+ PRIMARY KEY (id)
+);
+
+CREATE TABLE posts 
+(
+  id mediumint(20) UNSIGNED NOT NULL auto_increment,
+  author varchar(255) NOT NULL default '',
+  post mediumtext NOT NULL,			//change to title?
+  showtime varchar(255) NOT NULL default '',
+  realtime bigint(20) NOT NULL default '0',
+  lastposter varchar(255) NOT NULL default '',
+  numreplies bigint(20) NOT NULL default '0',
+  parentid bigint(20) NOT NULL default '0',
+  lastrepliedto bigint(20) NOT NULL default '0',
+  topicid SMALLINT NOT NULL,
+  PRIMARY KEY  (id),
+  FOREIGN KEY (topicid) REFERENCES topics(id)
+);
+ALTER TABLE posts ADD forumid TINYINT NOT NULL;
+ALTER TABLE posts ADD FOREIGN KEY (forumid) REFERENCES forums (id);
+title varchar(255) NOT NULL default '(no title)',	//remove this
+SELECT * FROM forums, topics WHERE topics.forumid=forums.id AND topics.id=10;
+ALTER TABLE ID RENAME id;//do i need to include conditions?
+CREATE FULLTEXT INDEX search ON posts (post);
+DROP INDEX search ON posts;
+
++------------------+
+| Tables_in_rpatel |
++------------------+
+| forums           |
+| posts            |
+| users            |
++------------------+
+
+users
++-----------------------+----------------------+------+-----+---------------------+----------------+
+| Field                 | Type                 | Null | Key | Default             | Extra          |
++-----------------------+----------------------+------+-----+---------------------+----------------+
+| id                    | int(11) unsigned     | NO   | PRI | NULL                | auto_increment |
+| username              | varchar(60)          | NO   |     | NULL                |                |
+| password              | varchar(60)          | NO   |     | NULL                |                |
+| role                  | varchar(6)           | NO   |     | user                |                |
+| pagination            | smallint(5) unsigned | NO   |     | 5                   |                |
+| email                 | varchar(50)          | NO   |     | NULL                |                |
+| status                | varchar(15)          | NO   |     | deactivated         |                |
+| date_joined           | datetime             | NO   |     | 0000-00-00 00:00:00 |                |
+| no_of_posts           | smallint(5) unsigned | NO   |     | 0                   |                |
+| last_post             | datetime             | NO   |     | 0000-00-00 00:00:00 |                |
+| keyword_notifications | varchar(200)         | NO   |     | none                |                |
+| user_notifications    | varchar(200)         | NO   |     | none                |                |
++-----------------------+----------------------+------+-----+---------------------+----------------+
+
+posts
++---------------+------------------------+------+-----+---------------------+----------------+
+| Field         | Type                   | Null | Key | Default             | Extra          |
++---------------+------------------------+------+-----+---------------------+----------------+
+| id            | mediumint(20) unsigned | NO   | PRI | NULL                | auto_increment |
+| author        | varchar(255)           | NO   |     |                     |                |
+| post          | mediumtext             | NO   |     | NULL                |                |
+| parentid      | bigint(20)             | NO   |     | 0                   |                |
+| lastrepliedto | bigint(20)             | NO   |     | 0                   |                |
+| topicid       | smallint(6)            | NO   | MUL | NULL                |                |
+| date_posted   | datetime               | NO   |     | 0000-00-00 00:00:00 |                |
+| date_edited   | datetime               | NO   |     | 0000-00-00 00:00:00 |                |
++---------------+------------------------+------+-----+---------------------+----------------+
+
+forums
++--------------+---------------------+------+-----+------------+----------------+
+| Field        | Type                | Null | Key | Default    | Extra          |
++--------------+---------------------+------+-----+------------+----------------+
+| id           | tinyint(3) unsigned | NO   | PRI | NULL       | auto_increment |
+| title        | varchar(255)        | NO   |     | (no title) |                |
+| invisibility | varchar(1)          | NO   |     | 0          |                |
++--------------+---------------------+------+-----+------------+----------------+
+
+topics
++-------------+-----------------------+------+-----+---------------------+----------------+
+| Field       | Type                  | Null | Key | Default             | Extra          |
++-------------+-----------------------+------+-----+---------------------+----------------+
+| id          | smallint(5) unsigned  | NO   | PRI | NULL                | auto_increment |
+| title       | varchar(255)          | NO   |     | (no title)          |                |
+| forumid     | tinyint(4)            | NO   | MUL | NULL                |                |
+| last_post   | datetime              | NO   |     | 0000-00-00 00:00:00 |                |
+| no_of_posts | mediumint(8) unsigned | NO   |     | 0                   |                |
+| status      | varchar(15)           | NO   |     | normal              |                |
++-------------+-----------------------+------+-----+---------------------+----------------+

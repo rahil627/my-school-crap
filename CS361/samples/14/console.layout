@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="Imap_test.cpp" open="1" top="0">
+		<Cursor position="632" topLine="0"/>
+	</File>
+	<File name="imap.h" open="1" top="1">
+		<Cursor position="143" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Headers"/>
+</CodeBlocks_layout_file>

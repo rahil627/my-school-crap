@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------
+--
+-- Title       : seqrec
+-- Design      : 1010seqrec
+-- Author      : 
+-- Company     : 
+--
+-------------------------------------------------------------------------------
+--
+-- File        : seqrecsrc.vhd
+-- Generated   : Fri Nov 14 10:00:37 2008
+-- From        : interface description file
+-- By          : Itf2Vhdl ver. 1.20
+--
+-------------------------------------------------------------------------------
+--
+-- Description : 
+--
+-------------------------------------------------------------------------------
+
+--{{ Section below this comment is automatically maintained
+--   and may be overwritten
+--{entity {seqrec} architecture {seqrec}}
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity seqrec is
+	 port(
+		 X : in STD_LOGIC;
+		 Q1 : in STD_LOGIC;
+		 Q0 : in STD_LOGIC;
+		 D1 : out STD_LOGIC;
+		 D0 : out STD_LOGIC;
+		 Z : out STD_LOGIC
+	     );
+end seqrec;
+
+--}} End of automatically maintained section
+
+architecture seqrec of seqrec is
+begin
+
+	-- enter your statements here -- 
+	D1<=(Q0 and (not X)) OR (Q1 and (not Q0) and X);
+	D0<=X;
+	Z <=Q1 and Q0 and (not X);
+
+end seqrec;

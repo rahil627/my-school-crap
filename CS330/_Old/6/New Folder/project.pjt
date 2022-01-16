@@ -1,0 +1,16 @@
+;; DrJava project file, written by build 20070130-2255
+;; files in the source tree are relative to: C:\Documents and Settings\Rahil Patel\My Documents\School\CS 330\5\New Folder
+;; other files with relative paths are rooted at (the parent of) this project file
+(proj-root-and-base
+  (file (name "")))
+;; no source files
+;; no aux files
+;; no collapsed branches
+;; no classpaths files
+;; no build directory
+(work-dir
+  (file (name "")))
+;; no main class
+;; no breakpoints
+;; no watches
+;; no bookmarks

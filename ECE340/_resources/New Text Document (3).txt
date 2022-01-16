@@ -1,0 +1,209 @@
+
+
+                                                                      Page 1
+ispLEVER 6.0.01.46.36.06.SP2006.01  -  Device Utilization Chart         Fri Nov 14 11:38:11 2008
+
+
+
+--------------------------------------------------------------------------------
+
+Module                   : 'lab6'
+
+--------------------------------------------------------------------------------
+
+Input files:
+
+    ABEL PLA file        : isp_lab6l.tt3
+    Device library       : P22V10GC.dev
+
+Output files:
+
+    Report file          : isp_lab6l.rpt
+    Programmer load file : isp_lab6l.jed
+
+--------------------------------------------------------------------------------
+
+
+                                                                      Page 2
+ispLEVER 6.0.01.46.36.06.SP2006.01  -  Device Utilization Chart         Fri Nov 14 11:38:11 2008
+
+P22V10GC Programmed Logic:
+--------------------------------------------------------------------------------
+
+
+
+Ya     = (  Q1 & !Q0 & x 
+          #   Q0 & !x );
+
+Yb     = (  x );
+
+Yc     = (  Q1 & Q0 & !x );
+
+
+
+                                                                      Page 3
+ispLEVER 6.0.01.46.36.06.SP2006.01  -  Device Utilization Chart         Fri Nov 14 11:38:11 2008
+
+P22V10GC Chip Diagram: (PLCC package)
+--------------------------------------------------------------------------------
+
+
+
+
+                                    P22V10GC
+
+                                   Q  Q        Y  Y
+                                x  0  1        c  a
+                              /----------------------
+                             /  4  3  2  1 28 27 26 |
+                             |                      |
+                             |  5                25 |                             
+                             |                      |
+                             |  6                24 |                             
+                             |                      |
+                             |  7                23 |                             
+                             |                      |
+                             |  8                22 |                             
+                             |                      |
+                             |  9                21 |                             
+                             |                      |
+                             | 10                20 |                             
+                             |                      |
+                             | 11                19 |                             
+                             |                      |
+                             | 12 13 14 15 16 17 18 |
+                             ------------------------
+                                               Y   
+                                               b   
+
+                        SIGNATURE: N/A
+
+
+                                                                      Page 4
+ispLEVER 6.0.01.46.36.06.SP2006.01  -  Device Utilization Chart         Fri Nov 14 11:38:11 2008
+
+P22V10GC Chip Diagram: (SSOP package)
+--------------------------------------------------------------------------------
+
+
+
+
+                                  P22V10GC
+
+                          ___________________________
+                         | ***                       |
+                         |                           |
+                         |  1                    28  | Vcc                     
+                         |                           |
+                      Q1 |  2                    27  | Yc                      
+                         |                           |
+                      Q0 |  3                    26  | Ya                      
+                         |                           |
+                       x |  4                    25  |                         
+                         |                           |
+                         |  5                    24  |                         
+                         |                           |
+                         |  6                    23  |                         
+                         |                           |
+                         |  7                    22  |                         
+                         |                           |
+                         |  8                    21  |                         
+                         |                           |
+                         |  9                    20  |                         
+                         |                           |
+                         | 10                    19  |                         
+                         |                           |
+                         | 11                    18  |                         
+                         |                           |
+                         | 12                    17  | Yb                      
+                         |                           |
+                         | 13                    16  |                         
+                         |                           |
+                     GND | 14                    15  |                         
+                         |                           |
+                         |                           |
+                         `---------------------------'
+
+                        SIGNATURE: N/A
+
+
+                                                                      Page 5
+ispLEVER 6.0.01.46.36.06.SP2006.01  -  Device Utilization Chart         Fri Nov 14 11:38:11 2008
+
+P22V10GC Resource Allocations:
+--------------------------------------------------------------------------------
+
+
+
+        Device        | Resource  |   Design    |
+       Resources      | Available | Requirement | Unused
+======================|===========|=============|==============
+                      |           |             |
+Input Pins:           |           |             |
+                      |           |             |
+          Input:      |     12    |      3      |    9 ( 75 %)
+                      |           |             |
+Output Pins:          |           |             |
+                      |           |             |
+          In/Out:     |     10    |      3      |    7 ( 70 %)
+          Output:     |      -    |      -      |    -
+                      |           |             |
+Buried Nodes:         |           |             |
+                      |           |             |
+          Input Reg:  |      -    |      -      |    -
+          Pin Reg:    |     10    |      0      |   10 (100 %)
+          Buried Reg: |      -    |      -      |    -
+
+
+                                                                      Page 6
+ispLEVER 6.0.01.46.36.06.SP2006.01  -  Device Utilization Chart         Fri Nov 14 11:38:11 2008
+
+P22V10GC Product Terms Distribution:
+--------------------------------------------------------------------------------
+
+
+
+            Signal                       |    Pin   | Terms | Terms | Terms
+             Name                        | Assigned | Used  |  Max  | Unused
+=========================================|==========|=======|=======|=======
+Ya                                       |   26     |   2   |  10   |   8
+Yb                                       |   17     |   1   |   8   |   7
+Yc                                       |   27     |   1   |   8   |   7
+
+
+     ==== List of Inputs/Feedbacks ====
+
+Signal Name                              | Pin      | Pin Type
+=========================================|==========|=========
+Q1                                       |    2     | CLK/IN
+Q0                                       |    3     | INPUT
+x                                        |    4     | INPUT
+
+
+                                                                      Page 7
+ispLEVER 6.0.01.46.36.06.SP2006.01  -  Device Utilization Chart         Fri Nov 14 11:38:11 2008
+
+P22V10GC Unused Resources:
+--------------------------------------------------------------------------------
+
+
+
+ Pin   |  Pin   |   Product   | Flip-flop
+Number |  Type  |   Terms     |   Type
+=======|========|=============|==========
+    5  |  INPUT |      -      |    -   
+    6  |  INPUT |      -      |    -   
+    7  |  INPUT |      -      |    -   
+    9  |  INPUT |      -      |    -   
+   10  |  INPUT |      -      |    -   
+   11  |  INPUT |      -      |    -   
+   12  |  INPUT |      -      |    -   
+   13  |  INPUT |      -      |    -   
+   16  |  INPUT |      -      |    -   
+   18  |  BIDIR | NORMAL 10   |    D
+   19  |  BIDIR | NORMAL 12   |    D
+   20  |  BIDIR | NORMAL 14   |    D
+   21  |  BIDIR | NORMAL 16   |    D
+   23  |  BIDIR | NORMAL 16   |    D
+   24  |  BIDIR | NORMAL 14   |    D
+   25  |  BIDIR | NORMAL 12   |    D

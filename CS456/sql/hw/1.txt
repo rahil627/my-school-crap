@@ -1,0 +1,10 @@
+1) 
+2) True (we asked about this question in class)
+3) True
+4) True
+5) 	a)the 'x' should be *
+	b)'sal' should be 'salary'
+	c)need comma at end of last_name
+	d)there should be an 'AS' between 12 and annual
+	e)and apostrophes between annual salary
+

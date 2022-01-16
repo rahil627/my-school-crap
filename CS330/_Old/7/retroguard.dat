@@ -1,0 +1,8 @@
+#
+#
+.class LifeApplet public method
+.class Life
+.method Life/main ([Ljava/lang/String;)V
+
+
+

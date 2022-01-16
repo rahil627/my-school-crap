@@ -1,0 +1,32 @@
+CREATE TABLE users (
+	ID MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ 	username VARCHAR(60) NOT NULL, 
+	password VARCHAR(60)NOT NULL);
+
+INSERT INTO users (username, password) VALUES (‘rahil’, md5(‘rahil’));
+
+CREATE TABLE posts (
+
+  postid bigint(20) NOT NULL auto_increment,
+
+  author varchar(255) NOT NULL default '',
+
+  title varchar(255) NOT NULL default '',
+
+  post mediumtext NOT NULL,
+
+  showtime varchar(255) NOT NULL default '',
+
+  realtime bigint(20) NOT NULL default '0',
+
+  lastposter varchar(255) NOT NULL default '',
+
+  numreplies bigint(20) NOT NULL default '0',
+
+  parentid bigint(20) NOT NULL default '0',
+
+  lastrepliedto bigint(20) NOT NULL default '0',
+
+  PRIMARY KEY  (postid)
+
+);

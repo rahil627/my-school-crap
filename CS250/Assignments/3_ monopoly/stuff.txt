@@ -1,0 +1,135 @@
+price, costHouse, rent, rentHouse1, rentHouse2, rentHouse3, rentHouse4, rentHotel, mortgageValue
+
+cpuracr:
+while (!fin.eof()) {
+fin >> t;
+switch (t) {
+case 'R': 
+then inside there have a counter that starts at 0
+and increments everytime you read a line
+
+            {
+            cout<<"my id is "<<id<<endl;
+            beta::display();
+            }
+
+    void display()
+             {if(type!='b')
+                           {cout<<"it appears I am a beta object"<<endl;
+                           cout<<"but in reality I an instance of derived class "<<type<<endl<<endl;
+                           }
+              else{cout<<"I am a genuine beta object"<<endl<<endl;}
+              }
+
+add *'s to seperate long cards
+
+//Doubles: A player who rolls doubles takes another turn after completing the first one (unless he/she was in Jail). If he rolls doubles again, he takes a third turn after completing the second. If, on the third turn, he rolls doubles again, he does not take that turn and goes to jail.
+
+           if(comm_chest[curr_square]) {
+
+               /* Here, we take a random community chest card. */
+               /* If it sends us to another location, go there. */
+
+               card = rand() % 16;
+
+               switch(card) {
+                  case 0 :
+
+                     /* Go to Go. */
+
+                     TRANSFER_TO_NEW_SQUARE(0);
+                     passed_go_count++;
+                     break;
+
+                  case 1 :
+
+                     /* Go to Jail. */
+
+                     TRANSFER_TO_NEW_SQUARE(40);
+                     in_jail = 1;
+                     break;
+
+                  case 2 :
+
+                     /* Get $10 in Beauty Contest */
+
+                     comm_chest_money += 10;
+                     break;
+
+                  case 3 :
+
+                     /* Get $45 for sale of stock. */
+
+                     comm_chest_money += 45;
+                     break;
+
+                  case 4 :
+
+                     /* Inherit $100 */
+
+                     comm_chest_money += 100;
+                     break;
+
+                  case 5 :
+
+                     /* Receive $25 for services. */
+
+                     comm_chest_money += 25;
+                     break;
+
+                  case 6 :
+
+                     /* Pay doctor's fee of $50. */
+
+                     comm_chest_money -= 50;
+                     break;
+
+                  case 7 :
+
+                     /* Bank error in your favor of $200. */
+
+                     comm_chest_money += 200;
+                     break;
+
+                  case 8 :
+
+                     /* Pay school tax of $150. */
+
+                     comm_chest_money -= 150;
+                     break;
+
+                  case 9 :
+
+                     /* Income tax refund of $20. */
+
+                     comm_chest_money += 20;
+                     break;
+
+                  case 10 :
+
+                     /* Pay hospital bill of $100. */
+
+                     comm_chest_money -= 100;
+                     break;
+
+                  case 11 :
+
+                     /* Life insurance matures for $100. */
+
+                     comm_chest_money += 100;
+                     break;
+
+                  case 12 :
+
+                     /* Xmas fund matures for $100. */
+
+                     comm_chest_money += 100;
+                     break;
+
+                  default :
+
+                     /* A card that leaves us on this square */
+                     /* and that we do nothing else with.    */
+
+                     break;
+               }

@@ -1,0 +1,75 @@
+GLOSSARY
+gate - airport gate, not the ramp that loads luggage to the plane
+/* */ - commented out
+
+AT_DB
+CREATE TABLE bags
+(
+	id		BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
+	flightid	[data type in AP_DB] (retreived from the airport check-in software via sneaky function)
+	scanners	binary(n) (see in notes)
+	/*
+	check-in	boolean
+	tsa
+	sort1
+	sort.
+	sort.
+	sortn
+	gate
+	cart		[connect to cart table?]
+	plane		boolean
+	*/
+);
+
+CREATE TABLE alerts
+(
+	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
+	bagid
+	code		varchar(##) NOT NULL
+	time		datetime NOT NULL
+	clear_type	varchar(1)(auto/manual/error)
+	clear_time	datetime
+	FOREIGN KEY	(bagid) REFERENCES forums(bag),
+);
+
+/*
+CREATE TABLE scanners
+(
+	id
+	bagid fk
+	check-in
+	.
+	.
+	plane
+);
+*/
+
+CREATE TABLE CART
+(
+	id (in the cart device)
+	current_gate (see in notes)
+);
+
+LCD
+AP DB is queried for the bag's destination gate and associates that with a gate. [OLD!]
+In routing module, routing algorithm is checked to make sure scanner that scanned bag is in the set of valid scanners to dropoff
+AT DB is then queried to find which cart / belt loader is servicing the associated gate
+Routing algorithm is checked for each bag that is scanned / in range of cart scanners
+State algorithm takes over until bag reaches final destination
+
+TO JOEL<3
+about carts
+im not sure how you and jeremy were using the scanners table, but here is what i thought you guys meant. each bag is connected to a unique scanner table which consists of booleans. doing this seems redundant because scanner id is never needed.
+i think it would be easier to just let the bags have those booleans. i also thought it made more sense to let each bag have a field called scanners with the data type of binary. this would work well with the routing algorithm we discussed, and updating this data can be done with logical operations.
+
+about scanners
+each cart has a rfid reader with memory and wifi capabilities. it should be able to send out it's ID to the wifi receiver. when a cart reaches a gate's loading area (it magically knows this), it's ID is sent to the wifi receiver. assuming that each gate has one wifi receiver, [k it's 4AM, this is where i SLEEP XD]
+
+or maybe the gate sends it's ID to the cart? no...gates don't have transmitters
+
+oh gawd...this is awful :(
+what if a cart gets near another gate?
+ummm, yea we prolly need to go over this portion
+
+ACII art
+AT DB----PC w/ AT----wifi receiver----cart special rfid reader

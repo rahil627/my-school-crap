@@ -1,0 +1,10 @@
+PART A
+4) update hr.employees set phone_number='650.555.1212' where employee_id = 110
+5) ALTER SYSTEM KILL SESSION '152,32410' IMMEDIATE
+
+PART B
+1) 10MB
+2) Through the undo advisor and through SQL plus
+
+PART C
+no questions

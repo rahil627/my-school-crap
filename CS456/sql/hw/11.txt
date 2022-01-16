@@ -1,0 +1,29 @@
+1)
+SELECT column_name, data_type, data_length, data_precision precision, data_scale scale, nullable
+FROM user_tab_columns
+WHERE table_name = '&table_name';
+
+2)
+SELECT a.column_name,b.constraint_name, b.constraint_type, b.search_condition, b.status
+FROM user_cons_columns a JOIN user_constraints b
+ON a.table_name=b.table_name
+AND a.table_name='&table_name';
+
+3)
+COMMENT ON TABLE departments
+IS 'Company department information inclding name, code, and location.';
+SELECT COMMENTS
+FROM user_tab_comments
+WHERE table_name = 'DEPARTMENTS';
+
+4)
+SELECT * FROM user_synonyms;
+
+5)
+SET LONG 1000
+SELECT view_name, text
+FROM user_views;
+
+6)
+SELECT sequence_name, max_value, increment_by, last_number
+FROM user_sequences;

@@ -1,0 +1,15 @@
+hw5
+set to receive
+wait until button is pushed
+send dummy string
+type string
+pc will return string with # at the end
+
+final
+set RE and RIE
+wait until button is pushed
+push button - set TE
+SCI ISR - TDRE, so goto SCITX, send ~, set RE
+store char
+
+interrupt upon receive

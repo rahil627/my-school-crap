@@ -1,0 +1,113 @@
+Worksheet:
+10245 --> (20,  ) 
+523   --> (1, )
+23578 --> (46, )
+546 -->   (1, )
+10248 --> (20,  )
+115 -->   (0,  )
+23580 --> (46, )
+23 -->    (0, )
+10278 --> (20, )
+425 -->   (0, )
+1028 ---> (2, )
+45786 --> (89, )
+45788  --> (89, )
+10248 --> (20,  ) 
+550 -->   (1, )
+46088 --> (90, )
+23588 --> (46, )
+
+Page reference with 512-byte page size: 
+20, 1, 46, 1, 20, 0, 46, 0, 20, 0, 2, 89, 89, 20, 1, 90, 46
+
+#of frames: 4 
+
+FIFO:
+20 Page fault
+1 page fault
+46 page fault
+1 No page fault
+20 No page fault
+0 Page fault 
+46 No page fault
+0 No page fault
+20 no page fault
+0 No page fault
+2 Page fault 
+89 Page fault
+89 No Page fault
+20 Page fault
+1  Page fault
+90 Page fault
+46 Page fault
+
+LRU:
+20 Page fault
+1 page fault
+46 page fault
+1 No page fault
+20 No page fault
+0 Page fault 
+46 No page fault
+0 No page fault
+20 no page fault
+0 No page fault
+2 Page fault 
+89 Page fault
+89 No Page fault
+20 No Page fault
+1  Page fault
+90 Page fault
+46 Page fault
+
+
+MRU:
+
+20 Page fault
+1 page fault
+46 page fault
+1 No page fault
+20 No page fault
+0 Page fault 
+46 No page fault
+0 No page fault
+20 no page fault
+0 No page fault
+2 Page fault 
+89 Page fault
+89 No Page fault
+20 No Page fault
+1  No Page fault
+90 Page fault
+46  No Page fault
+Page faults = 7/17 = 41.2%
+
+OPT:
+
+20 Page fault
+1 page fault
+46 page fault
+1 No page fault
+20 No page fault
+0 Page fault 
+46 No page fault
+0 No page fault
+20 no page fault
+0 No page fault
+2 Page fault 
+89 Page fault
+89 No Page fault
+20 No Page fault
+1  No Page fault
+90 Page fault
+46  No Page fault
+
+Page faults = 7/17 = 41.2%
+
+
+Output
+Page size	#of frames	PR ALG		Page fault%
+512                 4            FIFO             58.8%
+512                 4            LRU              52.9%
+512                 4            MRU              41.2%
+512                 4            OPT              41.2%

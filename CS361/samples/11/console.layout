@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="atlasmm.h" open="1" top="1">
+		<Cursor position="263" topLine="0"/>
+	</File>
+	<File name="atlasmm2.h" open="1" top="0">
+		<Cursor position="1146" topLine="45"/>
+	</File>
+	<File name="atlasmm_test.cpp" open="1" top="0">
+		<Cursor position="213" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Headers"/>
+</CodeBlocks_layout_file>

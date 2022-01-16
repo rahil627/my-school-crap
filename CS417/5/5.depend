@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1228549888 source:c:\documents and settings\rahil\my documents\my school\cs 417\me\5\bisection.cpp
+	<iostream>
+	<cmath>
+	<list>
+	<iomanip>
+	"poly_2.h"
+
+1228549869 c:\documents and settings\rahil\my documents\my school\cs 417\me\5\poly_2.h
+
+1228550318 source:c:\documents and settings\rahil\my documents\my school\cs 417\me\5\5.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	<cmath>
+	<list>
+	"poly.h"
+
+1228550336 c:\documents and settings\rahil\my documents\my school\cs 417\me\5\poly.h
+

@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1170714908 c:\my files\school\cs 330\1\enrollmentreport.cpp
+	<algorithm>
+	<iostream>
+	<fstream>
+	<utility>
+	"section.h"
+	"sectionseq.h"
+	"course.h"
+	"courseseq.h"
+	"split.h"
+	"debug.h"
+
+1170714673 c:\my files\school\cs 330\1\section.h
+	<iostream>
+	<string>
+	"student.h"
+
+1170650709 c:\my files\school\cs 330\1\student.h
+	<string>
+	<iostream>
+
+1170650708 c:\my files\school\cs 330\1\sectionseq.h
+	"section.h"
+
+1170649383 c:\my files\school\cs 330\1\course.h
+	<iostream>
+	<string>
+	"section.h"
+	"sectionseq.h"
+
+1170649413 c:\my files\school\cs 330\1\courseseq.h
+	"course.h"
+
+1170650708 c:\my files\school\cs 330\1\split.h
+	<string>
+
+1170650698 c:\my files\school\cs 330\1\debug.h
+	<iostream>
+

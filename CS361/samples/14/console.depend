@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1177478042 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\14\imap_test.cpp
+	<string>
+	<iostream>
+	<map>
+	"imap.h"
+
+1176795872 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\14\imap.h
+

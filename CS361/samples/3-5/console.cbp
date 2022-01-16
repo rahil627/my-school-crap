@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_project_file>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="1"/>
+	<Project>
+		<Option title="Console application"/>
+		<Option makefile="Makefile"/>
+		<Option makefile_is_custom="0"/>
+		<Option compiler="0"/>
+		<Build>
+			<Target title="default">
+				<Option output="C:\Documents and Settings\Rahil Patel\My Documents\School\CS 361\samples\3-5\console.exe"/>
+				<Option working_dir="."/>
+				<Option object_output=".objs"/>
+				<Option deps_output=".deps"/>
+				<Option type="1"/>
+				<Option compiler="0"/>
+				<Option projectResourceIncludeDirsRelation="1"/>
+			</Target>
+		</Build>
+		<Unit filename="flechette.h">
+			<Option compilerVar=""/>
+			<Option compile="0"/>
+			<Option link="0"/>
+			<Option target="default"/>
+		</Unit>
+		<Unit filename="flechette_test.cpp">
+			<Option compilerVar="CPP"/>
+			<Option target="default"/>
+		</Unit>
+		<Unit filename="normal.h">
+			<Option compilerVar=""/>
+			<Option compile="0"/>
+			<Option link="0"/>
+			<Option target="default"/>
+		</Unit>
+		<Unit filename="sensor.h">
+			<Option compilerVar=""/>
+			<Option compile="0"/>
+			<Option link="0"/>
+			<Option target="default"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

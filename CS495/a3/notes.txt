@@ -1,0 +1,353 @@
+host: mln-web.cs.odu.edu
+username:rpatel
+password:pa00579575
+
+sgarland
+87palmtrees87
+
+URL: http://mln-web.cs.odu.edu/~sgarland/
+URL: http://mln-web.cs.odu.edu:7214/a1-test
+
+telnet www.cs.odu.edu 80
+telnet mln-web.cs.odu.edu 80
+telnet mln-web.cs.odu.edu 7214
+
+TO LOOK AT ERROR LOG TYPE PUT THIS IN ANOTHER PUTTY WINDOW:
+tail -f error.log
+
+requests
+[GET/HEAD/OPTIONS/TRACE] /~mln/index.html HTTP/1.1
+HOST: www.cs.odu.edu
+Connection:  Close //not needed
+
+[GET/HEAD/OPTIONS/TRACE] /~sgarland/a2-test/index.html HTTP/1.1
+HOST: www.cs.odu.edu
+Connection:  Close //not needed
+
+python webserver.py //start http server
+python webserver.py start/stop/restart //with daemon
+
+cp or wget from the CS server not mln-web
+then chmod 755
+./a1.pl results http://mln-web.cs.odu.edu:7214/a1-test/ //must include the trailing '/'
+./a2.pl results2 http://mln-web.cs.odu.edu:7214/a2-test/
+./a2-ll.pl results2 http://mln-web.cs.odu.edu:7214/a2-test/
+./a3.pl results3 http://mln-web.cs.odu.edu:7214/a3-test/
+less group14/output.[test #]
+
+ftp://ftp.rfc-editor.org/in-notes/rfc2616.txt //RFC 2616
+
+http://en.wikipedia.org/wiki/HTTP
+http://en.wikipedia.org/wiki/List_of_HTTP_headers
+
+http://docs.python.org/3.0/library/http.server.html
+http://docs.python.org/library/basehttpserver.html
+http://docs.python.org/library/logging.html
+
+301
+GET /a1-test/2 HTTP/1.1
+HOST: www.cs.odu.edu
+
+302
+GET a2-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+
+302 - regex
+HEAD a2-test/1/1.2/go%20hokies!.html HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+304 - pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2005 18:43:15 GMT
+
+304 - fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+304 - pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Unmodified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+304 - fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Unmodified-Since: Sun, 29 Jan 2005 18:43:15 GMT
+
+412 - if-match pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Match: "1656f6ce98fe5928ed0fbf440c84bcb1"
+
+412 - if-match fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Match: "mumbojumbo"
+
+412 - if-none match pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-None-Match: "mumbojumbo"
+
+412 - if-none match fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-None-Match: "1656f6ce98fe5928ed0fbf440c84bcb1"
+
+options "*"
+OPTIONS * HTTP/1.1
+Host: www.cs.odu.edu
+
+directory listing
+GET a1-test/2/ HTTP/1.1
+Host: www.cs.odu.edu
+
+pipeline
+GET /a1-test/2 HTTP/1.1
+HOST: www.cs.odu.edu
+
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+OPTIONS a1-test/2/ HTTP/1.1
+Host: www.cs.odu.edu
+
+general testing
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+
+
+404 pipeline
+GET /adsflkjalskdjfslkf HTTP/1.1
+Host: mln-web.cs.odu.edu
+
+GET /adsflkjalskdjfslkf HTTP/1.1
+Host: mln-web.cs.odu.edu
+
+
+
+testing mln's server via telnet www.cs.odu.edu 80
+GET /~mln/teaching/cs595-s06/a1-test/2 HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+TRACE /~mln/teaching/cs595-s06/a2-test/2/fairlane.html HTTP/1.1
+Host: mln-web.cs.odu.edu
+If-Match: "not-a-real-etag"
+If-None-Match: "also-not-a-real-etag"
+If-Modified-Since: Mon, 27 Feb 2006 18:27:12 GMT
+If-Unmodified-Since: Mon, 27 Feb 2006 18:27:12 GMT
+Connection: close
+
+
+testing CS server via telnet mln-web.cs.odu.edu 80
+GET / HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+
+Difference between import and from-import in Python
+import feathers
+duster = feathers.ostrich("South Africa")
+
+from feathers import ostrich
+duster = ostrich("South Africa")
+
+
+
+
+
+
+
+
+A3
+
+HEAD /a2-test/1/1.2/go%20hokies!.html HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+new 302
+GET /a2-test/galaxie.txt HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+GET /a2-test/fairlane.txt HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+ps -aux | grep sgarland //display process list
+kill [process #]
+
+rm /tmp/Wanksta.pid
+
+accept-content-type****************************
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=0.1, image/gif; q=0.5, image/jpeg; q=1.0
+Connection: close
+
+HEAD /a3-test/fairlane.jpeg HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=1.0, image/gif; q=0.5, image/jpeg; q=0.1
+Connection: close
+***********************************
+
+
+406 tests*******
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=0.0, image/gif; q=0.0, image/jpeg; q=0.0
+Connection: close
+
+HEAD /a3-test/index.html HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=0.0, image/gif; q=0.0, image/jpeg; q=0.0
+Connection: close
+***********************
+
+NEED TO IMPLEMENT THIS TEST********************************************
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png, image/gif, image/jpeg
+Connection: close
+***************************************************
+Carlton is correct.  It is possible to have:
+
+Accept: image/png, image/gif
+
+and not specify the q-values specifically.  in that case, the default
+value for image/png and image/gif if "1.0" -- and the default value for
+image/jpeg is "0.0" (since it does not appear).
+
+all of my requests will explicitly set the q-values in the appropriate
+headers.
+
+regards,
+
+Michael
+************************************************
+302 with Accept
+GET /a2-test/galaxie.txt HTTP/1.1
+Host: mln-web.cs.odu.edu
+Accept: image/png; q=1.0, image/gif; q=0.5, image/jpeg; q=0.1
+Connection: close
+
+GET /a2-test/galaxie HTTP/1.1
+Host: mln-web.cs.odu.edu
+Connection: close
+
+
+
+HEAD /a3-test/index.html.ko.euc-kr HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+GET /a3-test/index.html.ko.euc-kr HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/vt-uva.html.gz HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/index.html.ko.euc-kr HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+accept-charset test*******************
+HEAD /a3-test/index.html HTTP/1.1
+Accept-Language: ja; q=1.0
+Accept-Charset: iso-2022-jp; q=1.0
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/index.html HTTP/1.1
+Accept-Charset: iso-2022-jp; q=1.0
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/index HTTP/1.1
+Accept-Charset: iso-2022-jp; q=1.0
+Host: www.cs.odu.edu
+Connection: close
+**********************
+
+accept-encoding test**************
+HEAD /a3-test/vt-uva HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/vt-uva HTTP/1.1
+Accept-Encoding: compress; q=0.1, gzip; q=0.0
+Host: www.cs.odu.edu
+Connection: close
+*****************************
+
+
+accept-language test*************
+HEAD /a3-test/index.html HTTP/1.1
+Accept-Language: en; q=1.0, de; q=0.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/index.html HTTP/1.1
+Accept-Language: en; q=1.0
+Host: www.cs.odu.edu
+Connection: close
+******************
+
+general testing
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+
+HEAD /a3-test/fairlane.jpeg HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=1.0, image/gif; q=0.5, image/jpeg; q=0.1
+Connection: close
+
+300 tests********
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Connection: close
+
+HEAD /a3-test/fairlane HTTP/1.1
+Host: www.cs.odu.edu
+Accept: image/png; q=1.0, image/gif; q=1.0, image/jpeg; q=1.0
+Connection: close
+*******
+
+STRUCTED ETAGS --->Jared "dude all i did for structured etags was md5 hash the fuckin tail of the URI"
+
+
+
+test $=fixed
+01+ server test
+02$ missing content-language
+03$ HEAD /a3-test/index.htmll should return 404 not 300
+04+ a2
+05+ a2
+06+
+07- Accept: image/*; q=1.0 should be 300 accept all images not 406
+08- Accept: image/jpeg; q=0.9, image/png; q=0.91, image/tiff; q=0.95 should be 200 not 406
+09- checks etag
+10- Accept: text/*; q=1.0, image/*; q=0.99
+11- Accept-Encoding: compress; q=0.0, gzip; q=0.0, deflate; q=0.5
+12- Accept-Encoding: compress; q=0.0, gzip; q=0.5
+13+
+14- Accept-Language: en; q=1.0, ja; q-0.5 AND Accept-Charset: euc-jp; q=1.0, iso-2022-jp; q=0.0
+15+
+16+
+17$ worked after fixing test02
+18+
+
+
+test08 - this returns 406 - see line 437 <-----Fixed
+HEAD /a3-test/fairlane HTTP/1.1
+Host: mln-web.cs.odu.edu
+Accept: image/jpeg; q=0.9
+User-Agent: CS 595-S09 A3 automated Checker
+Connection: close

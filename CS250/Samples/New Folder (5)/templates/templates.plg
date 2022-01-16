@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: templates - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Documents and Settings\Rahil Patel\RSP43.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/templates.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"C:\Documents and Settings\Rahil Patel\My Documents\School\CS 250\Examples\New Folder (5)\templatetest.cpp"
+]
+Creating command line "cl.exe @"C:\Documents and Settings\Rahil Patel\RSP43.tmp"" 
+Creating temporary file "C:\Documents and Settings\Rahil Patel\RSP44.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/templates.pdb" /debug /machine:I386 /out:"Debug/templates.exe" /pdbtype:sept 
+".\Debug\templatetest.obj"
+]
+Creating command line "link.exe @"C:\Documents and Settings\Rahil Patel\RSP44.tmp""
+<h3>Output Window</h3>
+Compiling...
+templatetest.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+templates.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

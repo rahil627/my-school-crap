@@ -1,0 +1,77 @@
+	CS330 Home	discuss this page
+
+Assignment: PipeLayer
+Due date: 11/24/2008, by 11:59:59 p.m.
+
+ In this assignment you will explore the use of inheritance and dynamic binding in Java. 
+
+You will be provided with a partial implementation of a simple game program, written in Java. Your task is to complete the program.
+The Lake Gaston Pipeline Game
+
+Construction is underway on the pipeline to bring water from Lake Gaston to thirsty Virginia Beach. You are lucky enough to have won the contract to lay the pipe through a small parcel of land. What's more, your brother-in-law the lawyer has wrangled a wonderful contract under which you get paid per unit length of pipe that actually carries water, so it is in your best interest to snake that pipe back and forth as much as you can, so as to get the longest possible working pipeline within your small area of land.
+
+Unfortunately, your pipe supplier delivers whatever shape pipe sections he feels like, and you have to pay for each one delivered, whether you use it or not. Can you lay more water-carrying pipe than you waste in unused pipe sections just lying around on your property?
+
+Shapes
+
+To play the game, follow the instructions below for running the program. At the top of the gameboard you will see the section of pipe that has been delivered. Click in the grid to place the pipe. If the pipe connects with the water carrying pipe laid so far, the color will change to indicate that the pipe is filling with water, and your score increases.
+Running the game
+To familiarize yourself with how the program is supposed to work, a completed version is provided. Run the game via your browser.  
+The Assignment
+
+   1. Choose a working directory for your assignment, making sure it is not world readable or executable. Copy the assignment files into that directory. 
+
+      Files for this assignment are available here. They are also available on the ODU CS UNIX system from ~cs330/public_html/pipelayer .
+
+       [private thread] Addind classes to makefile
+      Note that the source code is actually placed in a subdirectory called PipeLayer. This is because the program is organized as a package (module) of classes. The package is called PipeLayer. Java compilers expect the directory/file structure of the project area to reflect the package/class structure: each package has a directory of the same name, each (public) class Foo has a corresponding source code file Foo.java
+
+      Despite the fact that the source code is in this PipeLayer directory, you will continue to compile and execute from the same directory where the makefile resides.
+   2. Compile the source code. Type 
+
+            make
+
+      This should compile the entire program.
+   3.
+
+   4. Execute this version of the game, and compare to the complete game you ran earlier. 
+
+      Type
+
+                make applet
+
+      and then browse to 
+
+                http://www.cs.odu.edu/~your-login-name/PipeLayer/
+
+   5. As you will note in the previous step, the source code you have been given provides only a single shape of pipe. 
+
+      You must complete the game, making it behave identically to the complete game of step 2.
+
+      To do this, you should
+         1. modify PipeKit.java
+         2. add any additional source code files you wish
+      but you should not otherwise modify or remove the other source code files provided. 
+
+      You may also find it to your advantage to modify the makefile by adding to the list of CLASSES. For every file Foo.java that you add to the project, add the name Foo.class to the CLASSES list in the makefile. [Note that all but the last line of the CLASSES list must end with a backslash \.]
+
+Hint: to complete this project, it is necessary for you to read and understand two files among the entire set of provided source files: Pipe.java and PipeKit.java.
+
+However, to appreciate how these classes get used in ways that exploit dynamic binding, look at the paint() function in Tile.java or the rescore() function in GameBoard.java.
+Working in Java
+
+You have the option of doing your actual programming work on one of our Unix servers or on your own PC. The course Library page has links to the free Sun Java compiler and runtime system.
+
+The basic compilation and run commands for use with Java are covered in CS252. These will be the same regardless of whether you work on a Unix machine or on your own PC.
+
+In CS252, you learned how to use emacs or vi as a development environment, editing source code, compiling (using make), capturing and stepping through error messages, and running the debugger. Presumably, you have become familiar with doing this for C++. Java can be developed the same way. The instructions given above on how to compile and run the code provided with the assignment gives you the necessary make commands for your development.
+
+If you choose to download the Sun compiler on your own PC, and you have already installed emacs, xemacs, or vi and make (e.g., via CygWin - see the CS252 website), then you can use emacs/xemacs/vi as your development environment there. 
+Submitting
+To submit your assignment, use the button below. You will receive a automated report via email (to your CS email account). This report will include any compilation errors encountered when compiling your code. You may resubmit as often as you like until the due date has passed. 
+
+
+
+
+
+	CS330 Home	discuss this page

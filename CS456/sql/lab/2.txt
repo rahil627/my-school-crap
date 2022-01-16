@@ -1,0 +1,18 @@
+1)
+SELECT a.last_name "Employee", a.employee_id "EMP#", b.last_name, a.manager_id "Mgr#"
+FROM employees a, employees b
+WHERE b.employee_id = a.manager_id
+ORDER BY a.manager_id, a.employee_id;
+
+2)
+SELECT a.last_name "Employee", a.employee_id "EMP#", b.last_name, a.manager_id "Mgr#"
+FROM employees a, employees b
+WHERE b.employee_id(+) = a.manager_id
+ORDER BY a.employee_id;
+
+3)
+SELECT a.department_id department, c.last_name employees, a.last_name colleague
+FROM employees a, employees c
+WHERE a.department_id =c.department_id
+  AND a.last_name != c.last_name
+ORDER BY a.department_id, c.last_name, a.last_name;

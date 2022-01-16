@@ -1,0 +1,23 @@
+body{font-family:Arial, Helvetica, sans-serif;}
+
+#topbar{font-size:14px; color:#3b5d14; background:#b2d281; font-weight:bold; padding:6px; overflow:auto; height:1%; clear:both;}
+	#topbar a{color:#3b5d14; text-decoration:none; margin:0 10px; height:23px; line-height:23px; float:left; display:block;}
+	a.active{ 	height:23px;
+				line-height:23px; 
+				background:url(pic/tb_a.png) right top no-repeat;
+				padding-right:10px;
+			}
+	a.active span{ background:url(pic/tb_span.png) left top no-repeat; height:23px; display:block; padding-left:10px;}
+	
+#middlebar{font-size:11px; color:#3b5d14; background:#90b557; font-weight:bold; padding:6px; overflow:auto; height:1%; clear:both;}
+	#middlebar a{	color:#3b5d14; 
+					text-decoration:none; 
+					margin:0 5px; 
+					padding-right:10px; 
+					height:23px; 
+					line-height:23px; 
+					display:block; 
+					float:left; 
+					background:url(pic/mb_a.png) right top no-repeat;
+				}
+	#middlebar a span{background:url(pic/mb_span.png) left top no-repeat; height:23px; display:block; padding-left:10px;}

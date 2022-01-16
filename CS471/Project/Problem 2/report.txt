@@ -1,0 +1,35 @@
+Findings From Output:
+After running the program multiple times with different input files with different addresses I Found these results.
+
+Algorithm Best to Worst.
+
+Optimal
+LRU(Least Recently Used)
+FIFO(First In First Out)
+MRU(Most Recently Used)
+
+The higher number of Frames, the lower number of Page Faults.
+
+The easiest algorithm to write was the FIFO algorithm and the hardest algorithm to write was LRU or Optimal algorithms.
+
+This is how the program works.
+Reads the virtual addresses, converts it into page references, and stores it in a queue (PRQ).
+1) if the page exists in MM, do nothing
+2) if the MM is empty, fill it in!
+3) if the MM is full, replace page according to algorithm
+
+FIFO
+It just loops through MM, like this--> 123412341234 and just replaces in that order.
+
+MRU
+As the algorithm reads PRQ, it puts the used PR's into a stack,
+therefore the top of the stack is the target for page replacement.
+
+LRU
+As the algorithm reads PRQ, it puts the used PR's into a vector (PRV),
+it checks past page references (PRV) from the most recent (PRV.end) to the least recent (PRV.begin),
+if it exists in the MM then found[frame]=true.
+The last page reference that matches MM found is the page to replace aka (target).
+
+OPT - Just like LRU algorithm, but there is another container made called FRV that contains the future page references.
+Then by fliping around the LRU algorithm to check from the end of FRV container to the current page fault.

@@ -1,0 +1,27 @@
+1) F - subqueries have to select one row
+
+2) A, D, E - MIN, MAX and COUNT can be used by all expressions. The others are limited to numbers.
+
+3) C - due to the definition of column aliases (i've never heard of A and D)
+
+4) D, E - do not work because of invalid table characters, or needs quotes
+
+5) D - because the WHERE clause limits the rows the to only those that match
+
+6) C
+
+PART B
+1)
+SELECT 'The salary of '||last_name||' after a 10% raise is '||(salary + salary*.1) "New Salary"
+from employees;
+
+2)
+SELECT last_name, ROUND(MONTHS_BETWEEN(SYSDATE, hire_date)/12) years, ROUND(MONTHS_BETWEEN(SYSDATE, hire_date)) months
+FROM employees;
+
+3)
+SELECT COUNT(*)
+from employees
+WHERE last_name like '%n';
+
+4)

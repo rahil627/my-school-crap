@@ -1,0 +1,204 @@
+<?php session_start();  include 'protect.php'; include 'lib.php';  ?>
+
+<?php 
+include 'config.php';
+
+if(isset($_POST['zbody']) && isset($_POST['ztitle']) )
+{                          
+add_response($_SESSION['user'],$_POST['ztitle'],$_POST['zbody'],$_POST['zptype'],$_POST['zmpid']);
+unset($_POST['zbody']); 
+unset($_POST['ztitle']); 
+unset($_POST['zmpid']); 
+unset($_POST['zptype']); 
+}
+
+
+// Validate: id(len <= 10) && (is in 'response')
+//           pid(len <= 10) && (if ptype=t [is is 'thread'] if ptype=r [is in 'response'])
+//           ptype(len ==1) && (is 't' or 'r')
+
+                                $f=$_GET['id'];
+                                $ff=$_GET['pid'];
+                                $fff=$_GET['ptype'];
+    $ttt=false;
+      if($fff=='t'){$ttt=true;}
+      if($fff=='r'){$ttt=true;}
+      if($f!="")
+      {
+            if( (strlen($_GET['id'])<11) && (strlen($_GET['pid'])<11) && $ttt && test($f) && test($ff))
+             {
+                                if(check_response($f))
+                                {
+                                    define("pfname",$ff);
+                                    define("fname",$f);
+                                    $list=list_response("r",fname);
+                                    $s=sizeof($list);
+                                    define("size",$s);
+                                    define("url","showresponse.php?ptype=r&pid=".pfname."&id=".fname);
+                                    $set=true;
+                                }
+                                else
+                                {
+                                    //error
+                                    define("url","showforum.php");
+                                    define("fname","");
+                                    $set=false;
+                                    define("size","0");
+                                    define("myErr1","An error occured while processing your request
+                                             <br><b>An invalid forum name was entered.</b>
+                                             <br>Please navigate back and try again");                    
+                                }
+             }
+            
+            else
+            {
+                //error
+                define("url","showforum.php");
+                define("fname","");
+                $set=false;
+                define("size","0");
+                define("myErr1","An error occured while processing your request
+                         <br>Please navigate back and try again, or hit the 
+                         REFRESH button at the top of your browser.");
+            }
+            }
+       else{
+            define("url","showforum.php");
+            define("fname","");
+            $set=false;
+            define("size","0");
+            }       
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+  
+<HTML>
+  <HEAD>
+    <LINK href="style.css" rel="stylesheet" type="text/css">
+  </HEAD>
+  <BODY>
+    
+
+<div class="Outer">
+	
+	<div class="Logo">
+	</div>
+
+    <div class="Login">
+    
+        <?php start('a'); ?>
+              Welcome <?php echo $_SESSION['user']; ?> !
+        <?php stop('a'); ?>
+        
+        <?php start('a'); ?>                 
+            <form action="<?php echo url; ?>" method="post">
+            <input type="hidden" name="out" value="1">
+            <input type="submit" value="logout">
+            </form>
+        <?php stop('a'); ?>
+        
+        <?php start('o'); ?>
+            <form action="<?php echo url; ?>" method="post">
+                <table width=200 border=1><tr><td width=50>
+                name:
+                </td><td>
+                <input type="text" name="sn">
+                </td></tr><tr><td>
+                password:
+                </td><td>
+                <input type="password" name="pw">
+                </td></tr><tr><td colspan=2>
+                <input type="submit" value="submit">
+                </td></tr></table>
+            </form>
+        <?php stop('o'); ?>    
+    </div>
+    
+    <div class="menu">
+        <a href="index.php">Home</a>
+        <?php navr($f); ?>
+    </div>
+    
+<div class="body">
+
+    <?php
+    if($set){
+    mysql_connect(host,sn,pw);
+    mysql_select_db(db);       
+
+    $query = "SELECT * FROM response WHERE ID=\"$f\""; 
+   
+    $result=mysql_query($query);
+        $f2 = mysql_result($result,0,"author");
+        $f0 = mysql_result($result,0,"title");
+        $f1 = mysql_result($result,0,"body");
+    mysql_close(); 
+    
+    echo "<center><b>".$f2."</b>"; 
+    echo " wrote: <b> ".$f0."</b> .<br>";
+    echo "<i>".$f1."</i></center><br><br>";
+ 
+    /*
+         $f0 = mysql_result($result,$i,"author");
+         $f1 = mysql_result($result,$i,"date");
+         $f2 = mysql_result($result,$i,"size");
+         $f3 = mysql_result($result,$i,"title");
+         $f4 = mysql_result($result,$i,"body");
+         $f5 = mysql_result($result,$i,"ID");
+         $f6 = mysql_result($result,$i,"ptype");
+         $f7 = mysql_result($result,$i,"pid");
+         */         
+     }                        
+      if($set)
+          {
+           for($i=0;$i<size;$i++) 
+            {
+
+                echo "<table width=500><tr><td width=150><b>Author</b>:";
+                echo $list[$i][0];       
+                echo "<br><b>Date:</b>";
+                echo $list[$i][1];     
+                echo "<br><b>Replies:</b>";
+                echo $list[$i][2];
+      
+                if($_SESSION['user']!=''){
+                echo "<br><a href=\"showresponse.php?ptype=r&pid=".$list[$i][7]."&id=".$list[$i][5]."\">Read Replies</a>";
+                }
+                echo "</td><td width=350><b>Title:</b>";
+                echo $list[$i][3];
+                echo "<br><b>Response:</b>";
+                echo $list[$i][4];         
+                echo "</td></tr>"; 
+             }
+           }
+         else{ if( defined('myErr1') ){echo myErr1;} }
+
+         ?>
+     </table>
+          
+</div>
+
+<div class="body">
+<?php start('a'); ?>
+<b>Add a response:</b>
+     <form name="add" action="<?php echo url; ?>" method="POST">
+           Title: <input type="text" name="ztitle">
+           <br>
+           Content: <textarea name="zbody" rows=15 cols=70 ></textarea>
+           <br>           
+           
+           <input type="hidden" name="zmpid" value="<?php echo $_GET['id']; ?>">
+           <input type="hidden" name="redir" value="<?php echo url; ?>">
+           <input type="hidden" name="zptype" value="r">
+           <input type="submit" value="Post">
+     </form>
+     <?php stop('a'); ?>
+</div>
+
+</div>
+    
+    
+    
+  </BODY>
+</HTML>

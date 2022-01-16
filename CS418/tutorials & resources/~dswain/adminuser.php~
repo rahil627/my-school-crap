@@ -1,0 +1,181 @@
+<?php session_start();
+include 'protect.php'; include 'lib.php'; 
+//$_SESSION['r']=0;
+
+
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+  
+<HTML>
+  <HEAD>
+    <LINK href="style.css" rel="stylesheet" type="text/css">
+  </HEAD>
+  <BODY>
+    
+    
+<div class="Outer">
+
+<div class="Logo">
+</div>
+
+<div class="Login">
+        <?php start('a'); ?>
+        Welcome <?php echo $_SESSION['user']; ?> ! Current Status: Administrator
+        <?php stop('a'); ?>
+        
+        <?php start('a'); ?>                 
+            <form action="adminuser.php" method="post">
+            <input type="hidden" name="out" value="1">
+            <input type="submit" value="logout">
+            </form>
+        <?php stop('a'); ?>
+        
+        <?php start('o'); ?>
+            <form action="adminuser.php" method="post">
+            <table width=200 border=1><tr><td width=50>
+            name:
+            </td><td>
+            <input type="text" name="sn">
+            </td></tr><tr><td>
+            password:
+            </td><td>
+            <input type="password" name="pw">
+            </td></tr><tr><td colspan=2>
+            <input type="submit" value="submit">
+            </td></tr></table>
+            </form>
+        <?php stop('o'); ?>    
+</div>
+    
+<div class="menu">
+  <a href="index.php">Home</a>  
+</div>
+    
+<div class="body">
+    
+
+<?php 
+
+    mysql_connect(host,sn,pw);
+    mysql_select_db(db);
+   
+ if( isset($_SESSION['uc'])){
+// print_r($_SESSION['uc']);
+
+  
+    for( $i=0 ; $i < sizeof ($_SESSION['uc']) ; $i++ )
+      {
+            $un=$_SESSION['uc'][$i][0];
+            $p=$_POST["$un"];
+            $temp[$i]=array(0=> $un,1=> $p);
+           // echo $temp[$i][0]."-".$temp[$i][1]."<br>";
+       }
+      $_SESSION['adminuserTEMP']=$temp;
+
+
+
+
+      if(isset($_SESSION['adminuserLAST']) && sizeof($_SESSION['adminuserLAST'])) //if LAST exists, then compare
+       {
+	   for( $i=0 ; $i < sizeof ($_SESSION['adminuserTEMP']) ; $i++ )
+	   {	$t=$_SESSION['adminuserTEMP'][$i][0];
+	   	if( isset($_POST["$t"])==false ) {$update=false;break;}
+		if( ($_SESSION['adminuserTEMP'][$i][0]!=$_SESSION['adminuserLAST'][$i][0])
+		   || ($_SESSION['adminuserTEMP'][$i][1]!=$_SESSION['adminuserLAST'][$i][1]) )
+		         {$update=true; break;}
+	   }
+	   $update=false;
+       }
+     
+      else
+       {
+          $update=true;
+       } 
+      
+/////
+if($_SESSION['r']==0){$update=false;}
+if($_POST['reg']!="1"){$update=false;}
+/////
+
+    if($update)
+    {//echo "update!!";
+    unset($_POST['reg']);
+     for( $i=0 ; $i < sizeof ($_SESSION['adminuserTEMP']) ; $i++ )
+     	  {
+	   $usr=$_SESSION['adminuserTEMP'][$i][0];
+           $prv=$_SESSION['adminuserTEMP'][$i][1];
+      	   $q="UPDATE user SET privilege =\"$prv\" WHERE username=\"$usr\"";
+       	   $resu=mysql_query($q);
+	   unset($_POST["$usr"]);
+      	   //echo $q."<br>";
+ 	   }
+   	   
+     mysql_close();   
+    echo "Values have been changed!";
+    echo "<br>";
+    unset($_SESSION['uc']);
+//    unset($_SESSION['adminuserTEMP']);
+for( $i=0 ; $i < sizeof ($_SESSION['adminuserTEMP']) ; $i++ )
+     {
+	$_SESSION['adminuserTEMP'][$i][0]==$_SESSION['adminuserLAST'][$i][0];
+        $_SESSION['adminuserTEMP'][$i][1]==$_SESSION['adminuserLAST'][$i][1];
+     }
+ }
+
+ }
+   mysql_connect(host,sn,pw);
+    mysql_select_db(db);
+   $query = "SELECT * FROM user"; 
+ 
+    $result=mysql_query($query);
+    $num=mysql_numrows($result);
+    mysql_close();    
+	
+echo "<form action=\"adminuser.php\" method=\"POST\"><table>";
+echo "<tr><td width=100>Username</td><td width=100>Privilege</td></tr>";
+    
+    $i=0;
+    $j=0;
+  
+    while ($i < $num) 
+    { 
+          
+         $F1 = mysql_result($result,$i,"username");
+	 $F2 = mysql_result($result,$i,"privilege");
+	 if($F2=="m"){  
+			$SEL_M="selected";$SEL_U=" ";}
+	 else{$SEL_U="selected";$SEL_M="";}
+	 
+
+
+if($F2=="a")
+{
+echo "<tr><td width=100>$F1</td><td width=100>$F2</td></tr>";
+}
+else{	$u[$j]=array(0 =>$F1,1 => "-"); $j++;
+echo "<tr><td width=100>$F1</td><td width=100>";
+echo "<select name=\"$F1\">";
+echo "<option $SEL_M value =\"m\">m</option>";
+echo "<option $SEL_U value =\"u\">u</option>";
+echo "</select>";
+echo"</td></tr>";
+}	
+    $i++;
+    	
+    }
+echo "<tr><input type=\"submit\" value=\"submit\">";
+
+echo" <input type=\"hidden\" name=\"reg\" value=\"1\"></tr>";
+
+echo "</table></form>";
+$_SESSION['uc']=$u;
+$_SESSION['r']=1;
+?>  
+</div>
+</div>    
+    
+    
+  </BODY>
+</HTML>

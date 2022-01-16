@@ -1,0 +1,54 @@
+Customer Satisfaction Survey	2004-CSS	Mkt001	Mgt31
+Jones, Thomas
+Doe, Jane
+
+Company Brochure	2004-Bro	Mkt001	Mgt31
+Doe, Jane
+Jones, Thomas
+
+Widget Promotion	2003-Wid	Widg001	Mgt31
+Whittaker, Wallace
+
+Gadget Promotion	2003-Gag	Gag002	Mgt31
+Whittaker, Wallace
+
+Widget Retooling	2004-WidRT	Widg001	Ops02
+Masters, Ellen
+Goldman, Jerome
+
+Widget Evaluation	2004-WidEval	Widg001	Ops03
+Clarke, Steven
+
+New Widget Technology	2004-NWT	Widg002	RD00
+Clarke, Steven
+Masters, Ellen
+Goldman, Jerome
+
+Gadget Redesign	2003-GdDes	Gag004	RD01
+Clarke, Steven
+Masters, Ellen
+
+Gadget Manufacture	2001-GMan	Gag001	Ops02
+Masters, Ellen
+Goldman, Jerome
+Morris, Harold
+
+Widget Manufacture	2002-WdMan	Widg100	Ops02
+Morris, Harold
+Clarke, Steven
+
+Company Picnic	2004-Pic	Slush01	Mgt01
+Dewey, James
+Framingham, Susan
+
+Board Meeting & Dinner	2004-Din	Slush01	Mgt01
+Dewey, James
+Framingham, Susan
+
+Company Golf Tourney	2004-Golf	Slush01	Mgt01
+
+General Confusion	2004-Plan	Gen01	Mgt21
+Dewey, James
+Jones, Thomas
+Doe, Jane
+

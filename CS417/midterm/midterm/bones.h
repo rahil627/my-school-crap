@@ -1,0 +1,7 @@
+class bones
+{
+private:
+
+public:
+
+};

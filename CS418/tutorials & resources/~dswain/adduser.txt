@@ -1,0 +1,56 @@
+function resize($path)       <----------- added parameter
+{
+
+// copied from: http://us2.php.net/getimagesize
+// Max height and width
+
+$max_width = 100;               <----------- changed
+$max_height = 100;		 <----------- changed
+
+// Path to your jpeg
+
+   //$upfile = 'blown-fairlane.jpeg';
+$upfile = $path;
+
+  
+   	 list($width,$height,$type,$attr) = GetImageSize($upfile); // Read the size
+	 // for $type, 1=GIF, 2=JPEG, 3=PNG
+        
+         // Proportionally resize the image to the
+         // max sizes specified above
+        
+         $x_ratio = $max_width / $width;
+         $y_ratio = $max_height / $height;
+
+         if( ($width <= $max_width) && ($height <= $max_height) )
+         {
+               $tn_width = $width;
+               $tn_height = $height;
+         }
+         elseif (($x_ratio * $height) < $max_height)
+         {
+               $tn_height = ceil($x_ratio * $height);
+               $tn_width = $max_width;
+         }
+         else
+         {
+               $tn_width = ceil($y_ratio * $width);
+               $tn_height = $max_height;
+         }
+     // Increase memory limit to support larger files
+    
+     ini_set('memory_limit', '32M');
+    
+     // Create the new image!
+     $src = ImageCreateFromJpeg($upfile);
+     $dst = ImageCreateTrueColor($tn_width, $tn_height);
+     ImageCopyResized($dst, $src, 0, 0, 0, 0, $tn_width, $tn_height, $width, $height);
+     //ImageCopyResized($dst, $src, 0, 0, 0, 0, 300, 300, $width, $height);
+
+     ImageJpeg($dst,$path);   <----------- added parameter
+
+// Destroy the images
+ImageDestroy($src);
+ImageDestroy($dst);
+
+}

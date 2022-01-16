@@ -1,0 +1,173 @@
+host: mln-web.cs.odu.edu
+username:rpatel
+password:pa00579575
+
+sgarland
+87palmtrees87
+
+URL: http://mln-web.cs.odu.edu/~sgarland/
+URL: http://mln-web.cs.odu.edu:7214/a1-test
+
+telnet mln-web.cs.odu.edu 80
+telnet www.cs.odu.edu 80
+telnet mln-web.cs.odu.edu 7214
+
+requests
+[GET/HEAD/OPTIONS/TRACE] /~mln/index.html HTTP/1.1
+HOST: www.cs.odu.edu
+Connection:  Close //not needed
+
+[GET/HEAD/OPTIONS/TRACE] /~sgarland/a2-test/index.html HTTP/1.1
+HOST: www.cs.odu.edu
+Connection:  Close //not needed
+
+python webserver.py //start http server
+python webserver.py start/stop/restart //with daemon
+
+./a1.pl group14 http://mln-web.cs.odu.edu:7214/a1-test/ //must include the trailing '/'
+less group14/output.[test #]
+
+ftp://ftp.rfc-editor.org/in-notes/rfc2616.txt //RFC 2616
+
+http://en.wikipedia.org/wiki/HTTP
+http://en.wikipedia.org/wiki/List_of_HTTP_headers
+
+http://docs.python.org/3.0/library/http.server.html
+http://docs.python.org/library/basehttpserver.html#module-BaseHTTPServer
+http://docs.python.org/library/logging.html
+
+http://muharem.wordpress.com/2007/05/29/roll-your-own-server-in-50-lines-of-code/ //50LOC server with logging
+http://code.activestate.com/recipes/146306/ //POST using multipart/form-data
+
+301
+GET /a1-test/2 HTTP/1.1
+HOST: www.cs.odu.edu
+
+302
+GET a2-test/2/index.html HTTP/1.1
+Host: www.cs.odu.edu
+
+304 - pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2005 18:43:15 GMT
+
+304 - fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+304 - pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Unmodified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+304 - fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Unmodified-Since: Sun, 29 Jan 2005 18:43:15 GMT
+
+412 - if-match pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Match: "1656f6ce98fe5928ed0fbf440c84bcb1"
+
+412 - if-match fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Match: "mumbojumbo"
+
+412 - if-none match pass
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-None-Match: "mumbojumbo"
+
+412 - if-none match fail
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-None-Match: "1656f6ce98fe5928ed0fbf440c84bcb1""
+
+options "*"
+OPTIONS * HTTP/1.1
+Host: www.cs.odu.edu
+
+directory listing
+GET a1-test/2/ HTTP/1.1
+Host: www.cs.odu.edu
+
+pipeline
+GET /a1-test/2 HTTP/1.1
+HOST: www.cs.odu.edu
+
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+If-Modified-Since: Sun, 29 Jan 2010 18:43:15 GMT
+
+OPTIONS a1-test/2/ HTTP/1.1
+Host: www.cs.odu.edu
+
+general testing
+GET test.txt HTTP/1.1
+Host: www.cs.odu.edu
+
+
+
+
+
+
+"""
+#another redirection example
+class RedirectHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+    def do_HEAD(s):
+        s.send_response(301)
+        s.send_header("Location", REDIRECTIONS.get(s.path, LAST_RESORT))
+        s.end_headers()
+    def do_GET(s):
+        s.do_HEAD()
+#end of RedirectHandler
+"""
+
+"""
+#another redirection example
+print "Status: 301"
+print "Location: " + location
+print
+sys.exit(1)
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Difference between import and from in Python
+
+Python's "import" loads a Python module into its own namespace, so that you have to add the module name followed by a dot in front of references to any names from the imported module that you refer to:
+
+import feathers
+duster = feathers.ostrich("South Africa")
+
+"from" loads a Python module into the current namespace, so that you can refer to it without the need to mention the module name again:
+
+from feathers import *
+duster = ostrich("South Africa")
+
+or
+
+from feathers import ostrich
+duster = ostrich("South Africa")
+
+Q Why are both import and from provided? Can't I always use from?
+A If you were to load a lot of modules using from, you would find sooner or later that there was a conflict of names; from is fine for a small program but if it was used throughout a big program, you would hit problems from time to time
+
+Q Should I always use import then?
+A No ... use import most of the time, but use from is you want to refer to the members of a module many, many times in the calling code; that way, you save yourself having to write "feather." (in our example) time after time, but yet you don't end up with a cluttered namespace. You could describe this approach as being the best of both worlds.

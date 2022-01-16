@@ -1,0 +1,116 @@
+CREATE TABLE users
+(
+	id       MEDIUMINT   NOT NULL UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ 	username VARCHAR(60) NOT NULL, 
+	password VARCHAR(60) NOT NULL,
+	role     VARCHAR(6)  default 'user',
+	pagination TINYINT UNSIGNED NOT NULL default '5'
+);
+INSERT INTO users (username, password, role) VALUES (‘rahil’, md5(‘rahil’), 'master');
+ALTER TABLE users ADD role varchar(6) NOT NULL;
+ALTER TABLE users DROP roles;
+UPDATE users SET role="master" WHERE username="ndn";
+ALTER TABLE users ALTER role SET default "user";
+DELETE FROM users WHERE id=5;
+ALTER TABLE users CHANGE ID id INTEGER;//rename column
+ALTER TABLE users ADD pagination SMALLINT UNSIGNED NOT NULL default '5';
+
+CREATE TABLE forums
+(
+ id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+ title varchar(255) NOT NULL default '(no title)',
+ invisibility varchar(1) NOT NULL default '0',
+ PRIMARY KEY (id)
+);
+INSERT INTO forums(id, title) values(1, "Computers");
+UPDATE posts SET forumid="1";
+UPDATE forums SET title="Computers" WHERE id=1;
+SELECT * FROM posts WHERE postid=48;
+ALTER TABLE forums ADD delete varchar(1) NOT NULL default '0';
+
+CREATE TABLE topics
+(
+ id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+ title varchar(255) NOT NULL default '(no title)',
+ forumid tinyint NOT NULL,
+ FOREIGN KEY (forumid) REFERENCES forums(id),
+ PRIMARY KEY (id)
+);
+
+CREATE TABLE posts 
+(
+  id mediumint(20) UNSIGNED NOT NULL auto_increment,
+  author varchar(255) NOT NULL default '',
+  post mediumtext NOT NULL,			//change to title?
+  showtime varchar(255) NOT NULL default '',
+  realtime bigint(20) NOT NULL default '0',
+  lastposter varchar(255) NOT NULL default '',
+  numreplies bigint(20) NOT NULL default '0',
+  parentid bigint(20) NOT NULL default '0',
+  lastrepliedto bigint(20) NOT NULL default '0',
+  topicid SMALLINT NOT NULL,
+  PRIMARY KEY  (id),
+  FOREIGN KEY (topicid) REFERENCES topics(id)
+);
+ALTER TABLE posts ADD forumid TINYINT NOT NULL;
+ALTER TABLE posts ADD FOREIGN KEY (forumid) REFERENCES forums (id);
+title varchar(255) NOT NULL default '(no title)',	//remove this
+
+SELECT * FROM forums, topics WHERE topics.forumid=forums.id AND topics.id=10;
+
+
+
+ALTER TABLE ID RENAME id;
+
++------------------+
+| Tables_in_rpatel |
++------------------+
+| forums           |
+| posts            |
+| users            |
++------------------+
+
+users
++----+----------+----------------------------------+--------+
+| ID | username | password                         | role   |
++----+----------+----------------------------------+--------+
+|  1 | mln      | ae33d20c70e59a4c734d9f2c19c0df56 | mod    |
+|  2 | vdevaras | 790c83900b71d3bd2b34563f20f8e556 | admin  |
+|  3 | ndn      | 0cc175b9c0f1b6a831c399e269772661 | master |
+|  7 | mod      | 0cc175b9c0f1b6a831c399e269772661 | user   |
+|  6 | user     | 0cc175b9c0f1b6a831c399e269772661 | user   |
+|  8 | admin    | 0cc175b9c0f1b6a831c399e269772661 | user   |
++----+----------+----------------------------------+--------+
+
+posts
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| postid        | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| author        | varchar(255) | NO   |     |         |                |
+| title         | varchar(255) | NO   |     |         |                |
+| post          | mediumtext   | NO   |     | NULL    |                |
+| showtime      | varchar(255) | NO   |     |         |                |
+| realtime      | bigint(20)   | NO   |     | 0       |                |
+| lastposter    | varchar(255) | NO   |     |         |                |
+| numreplies    | bigint(20)   | NO   |     | 0       |                |
+| parentid      | bigint(20)   | NO   |     | 0       |                |
+| lastrepliedto | bigint(20)   | NO   |     | 0       |                |
+| forumid       | tinyint(4)   | NO   | MUL | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+
+forums
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | tinyint(4)   | NO   | PRI | NULL    | auto_increment |
+| title | varchar(255) | NO   |     |         |                |
++-------+--------------+------+-----+---------+----------------+
+
+topics
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | tinyint(4)   | NO   | PRI | NULL    | auto_increment |
+| title | varchar(255) | NO   |     |         |                |
++-------+--------------+------+-----+---------+----------------+

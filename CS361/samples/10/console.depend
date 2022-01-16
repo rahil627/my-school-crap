@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1177001457 c:\documents and settings\rahil patel\my documents\school\cs 361\samples\10\mapgen2.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	<cmath>
+

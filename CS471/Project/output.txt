@@ -1,0 +1,2 @@
+Page Size    # of Frames    PR Algorithm        Page Faults % 
+Page Size    # of Frames    PR Algorithm        Page Faults % 

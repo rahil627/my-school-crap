@@ -1,0 +1,201 @@
+<style type="text/css">
+
+
+
+body, td {font: normal 12px verdana;}
+.admin  A:link {text-decoration: bold; color:red;}
+.admin A:visited {text-decoration: none}
+.admin A:active {text-decoration: none}
+.admin A:hover {text-decoration: bold; color: orange;}
+
+
+.Outer {	 
+	position: relative;
+	background:white;
+	z-index:3;
+	height: auto; 
+	line-height:2em; 
+	width:700px;
+	//border-width: 0px;
+	font: normal 12px verdana;
+	background:white;
+}
+.Logo {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+
+	position: relative;
+	height: 150px;
+	line-height:1.2em;
+	width:700px;
+	z-index:2;  
+	font: normal 40x verdana;
+	text-align:center;
+		background-image:url(logo.jpg);
+	color: blue;
+}
+
+.Login {
+	border-style: none;
+	padding:5px;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:690px;
+	z-index:2;  
+	font: normal 15px verdana;
+	text-align:center;
+}
+
+.menu {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:700px;
+	z-index:2;  
+	font: normal 12px verdana;
+	text-align:center;
+	color:white;
+	//background:black; 
+background:black;
+	
+}
+.menuin {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:695px;
+	z-index:2;  
+	color:white;
+	font: normal 12px verdana;
+	text-align:center; 
+	//background:black; 
+background:black;
+	
+}
+
+.menu a:link {text-decoration: none;color:orange;}
+.menu a:visited {text-decoration: none;color:orange;}
+.menu a:hover {color: white;}   /* mouse over link */
+.menu a:active {color: red;} 
+
+.menuin a:link {text-decoration: none;color:orange;}
+.menuin a:visited {text-decoration: none;color:orange;}
+.menuin a:hover {color: white;}   /* mouse over link */
+.menuin a:active {color: red;} 
+
+.menuin2 {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:685px;
+	z-index:2;  
+	color:white;
+	font: normal 12px verdana;
+	padding: 5px;
+	text-align:left;
+	//background:black; 
+background:black;
+	
+}
+.menuin2 A:link {text-decoration:none ;color:orange;}
+.menuin2 A:link-visited {text-decoration:none ;color:orange;}
+
+.tbl {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:700px;
+	z-index:2;  
+	text-align:left;
+    font: normal 12px verdana;
+}
+.body {
+	padding: 3px; 
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:695px;
+	z-index:2;  
+	font-size:13px;
+	text-align:left;
+    font: normal 12px verdana;
+}
+.inner {
+
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:695px;
+	background:#ffffff;
+	z-index:2;  
+	font-size:13px;
+	text-align:left;
+    font: normal 12px verdana;
+}
+.quote{
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:650px;
+	z-index:2;  
+	font-size:13px;
+	text-align:left;
+ 	background:#white;
+    font: normal 12px verdana;
+}
+
+
+
+
+.row {
+	border-style: none;
+	border-color: inherit;
+	border: solid 1px black;
+	position: relative;
+	height: auto;
+	line-height:1.2em;
+	width:670px;
+	z-index:2;  
+	text-align:left;
+	background:white;
+    font: normal 12px verdana;
+	padding: 2px;
+}
+
+
+
+ .row a:link {text-decoration: none;color:orange;}
+ .row a:visited {text-decoration: none;color:orange;}
+.row a:hover {color: white;}   /* mouse over link */
+.row a:active {color: red;} 
+
+
+
+
+
+</style>

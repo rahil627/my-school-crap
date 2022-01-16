@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1168819549 c:\my files\school\cs 361\week 1\stack\stack_samp.cpp
+	<iostream>
+	<stack>
+	<string>
+

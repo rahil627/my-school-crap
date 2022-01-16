@@ -1,0 +1,56 @@
+1)
+SELECT location_id, street_address, city, state_province, country_name
+FROM locations
+NATURAL JOIN countries;
+
+2)
+SELECT last_name, department_id, department_name
+FROM employees JOIN departments
+USING (department_id);
+
+3)
+SELECT last_name, job_id, department_id, department_name
+FROM employees 
+JOIN departments
+USING (department_id)
+WHERE location_id=1800;
+
+4)
+SELECT a.last_name "Employee", a.employee_id "EMP#", b.last_name, a.manager_id "Mgr#"
+FROM employees a JOIN employees b
+ON (b.employee_id = a.manager_id)
+ORDER BY a.manager_id, a.employee_id;
+
+5)
+SELECT a.last_name "Employee", a.employee_id "EMP#", b.last_name, a.manager_id "Mgr#"
+FROM employees a LEFT OUTER JOIN employees b
+ON (b.employee_id = a.manager_id)
+ORDER BY a.employee_id;
+
+6)
+SELECT a.department_id department, c.last_name employees, a.last_name colleague
+FROM employees a, employees c
+WHERE a.department_id = c.department_id
+  AND a.last_name != c.last_name
+ORDER BY a.department_id, c.last_name, a.last_name;
+
+7)
+DESCRIBE job_grades;
+SELECT e.last_name, job_id, d.department_name, salary, grade_level
+FROM employees e JOIN departments d
+ON e.department_id=d.department_id
+JOIN job_grades j      
+ON (e.salary BETWEEN j.lowest_sal AND j.highest_sal);
+ORDER BY grade_level;
+
+8)
+SELECT e.last_name, e.hire_date
+FROM employees e, employees d
+WHERE d.last_name='Davies'
+      AND e.hire_date>d.hire_date;
+
+9)
+SELECT e.last_name, e.hire_date, m.last_name, m.hire_date
+FROM employees e, employees m
+WHERE e.manager_id=m.employee_id 
+      AND e.hire_date<m.hire_date;

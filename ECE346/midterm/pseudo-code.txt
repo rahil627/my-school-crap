@@ -1,0 +1,64 @@
+//new definitions
+	PORTB   		EQU $1004 ;7-segment display (accB)
+
+	fast_speed_s1 	EQU 1
+	fast_speed_s2 	EQU 4
+	normal_speed_s1 EQU 2
+	normal_speed_s2 EQU 8
+	time_base2 (see case 'N')
+
+ORG data
+	counter	FCB	$00 //actual counter variable, not CNTR
+	NUM	FCB $00, $01, $02, $03, $04, $05, $06, $07, $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
+	HEX	FCB $C0, $CF, $92, $86, $8D, $A4, $A0, $CE, $80, $8C, $88, $A1, $F0, $83, $B0, $B8
+	stride	FCB $00
+	temp_variable //hopefully can use this variable multiple times to save space
+	
+	//booleans
+	decimal_bool
+	up_bool
+	
+	last_digit
+
+ORG main
+
+input
+(
+	display menu on the console
+	pause the counter
+	
+	inchar
+	//switch (inchar) or a bunch of if/else statements that change settings according to inchar
+	case +: start from beginning of data tables using '#'
+	case -: start from ending of data tables using the specific memory address
+	case D: if(decimal){run code} 
+	case H: else{run hexadecimal code} [very large if else, try to used shared code when possible]
+	case R: set counter to 0 and set stride to 1
+	case S: if(0>char<F){add count accordingly} else{not in the requirements}
+	case E: JSR to a loop of displaying the last_digit in port B plus a decimal point
+	case P: BEQ 'P' to get out of loop
+	case N: STAA normal_speed_s1/s2/(s3) onto CNTR or add/subtract or just set time_base(?)
+	case F: STAA fast_speed_s1/s2/(s3) onto CNTR or add/subtract
+	case Q: SWI
+)
+
+The program will be set to run the default counter from the beginning.
+
+Many commands (R, S, N, F) simply involve changing values.
+For example, reset will look something like this:
+RESET	LDAB	#0			;counter=0
+		STAB	counter
+		LDAB	#1			;stride=1
+		STAB	stride
+
+The rest of the commands (D, H, E, P, +, -) will use BNE and BEQ against their associated boolean variables.
+For example, the + and - input may look like this:
+			LDAB	up_bool
+			BNE		count_down
+			LDX 	#NUM		;points to the beginning of NUM
+			LDY 	#DAT		;points to the beginning of DAT2
+	
+count_down	LDX		$0032
+			LDY		$0065
+			
+There will be two states for both decimal and hexadecimal. In decimal, the first two digits will use the first state because they have the same time base. The second state will be the digit containing the ‘remaining’ time.

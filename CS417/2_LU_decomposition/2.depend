@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1225422330 source:c:\documents and settings\rahil\my documents\my school\cs 417\2\matrix_test.cpp
+	<iostream>
+	<cmath>
+	<ctime>
+	<iomanip>
+	"matrix.h"
+
+1225422365 c:\documents and settings\rahil\my documents\my school\cs 417\2\matrix.h
+

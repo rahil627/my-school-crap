@@ -1,0 +1,18 @@
+1)A
+2)A
+3)A
+4)D
+5)A, D, E
+6)A
+7)D, E
+8)A
+9)F
+10)D, E?
+
+SELECT l.city "city", d.department_name "dname", e.job_id "job", SUM(e.salary)
+FROM employees e, departments d, locations l
+WHERE d.department_id>80
+      AND e.department_id = d.department_id
+      AND d.location_id = l.location_id
+GROUP BY cube(l.city, d.department_name, e.job_id);
+GROUP BY cube(l.city, d.department_name, e.job_id);
